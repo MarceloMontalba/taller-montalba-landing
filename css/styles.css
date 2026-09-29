@@ -674,53 +674,67 @@ h1, h2, h3, h4, h5, h6 {
   color: #ff9f43;
 }
 
-/* --- CLARIFICATION BANNER (NO A COMBUSTION LENTA) --- */
-.clarification-strip {
-  background: #fdf2e9;
-  border-top: 1px solid #fed7aa;
-  border-bottom: 1px solid #fed7aa;
-  padding: 1.5rem 0;
+/* --- TRUST & VALUE PROPOSITION STRIP --- */
+.trust-strip {
+  background: var(--color-dark-900);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.6rem 0;
+  color: #ffffff;
 }
 
-.clarification-content {
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.trust-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.clarification-text-group {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  max-width: 850px;
-}
-
-.clarification-icon {
-  font-size: 2rem;
+.trust-icon {
+  font-size: 1.35rem;
   color: var(--color-primary);
-  background: #ffffff;
-  width: 54px;
-  height: 54px;
-  border-radius: var(--radius-full);
+  background: rgba(217, 83, 30, 0.12);
+  border: 1px solid rgba(217, 83, 30, 0.25);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-sm);
   flex-shrink: 0;
 }
 
-.clarification-text h4 {
-  font-size: 1.05rem;
+.trust-text h4 {
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #9a3412;
+  color: #ffffff;
   margin-bottom: 0.2rem;
 }
 
-.clarification-text p {
-  font-size: 0.925rem;
-  color: #7c2d12;
+.trust-text p {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.35;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 /* --- RESTORATION SECTION (CORE FLAGSHIP) --- */
@@ -1781,35 +1795,99 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: contain;
 }
 
-/* --- FLOATING WHATSAPP BUTTON --- */
-.floating-whatsapp {
+/* --- SCROLL TO TOP BUTTON (FIXED) --- */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 998;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(217, 83, 30, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background: #bf4514;
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 25px rgba(217, 83, 30, 0.6);
+}
+
+/* --- FLOATING CONTACT ACTIONS (WHATSAPP & EMAIL) --- */
+.floating-contact-group {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   z-index: 999;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.floating-btn {
+  display: flex;
   align-items: center;
   gap: 0.65rem;
-  background: #25d366;
   color: #ffffff;
-  padding: 0.85rem 1.35rem;
+  padding: 0.8rem 1.25rem;
   border-radius: var(--radius-full);
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  text-decoration: none;
   transition: all var(--transition-normal);
+  position: relative;
+}
+
+.floating-whatsapp {
+  background: #25d366;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
 }
 
 .floating-whatsapp:hover {
   background: #20ba5a;
-  transform: translateY(-4px) scale(1.03);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
   color: #ffffff;
 }
 
-.floating-whatsapp i {
-  font-size: 1.4rem;
+.floating-email {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.35);
+}
+
+.floating-email:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(217, 83, 30, 0.45);
+  color: #ffffff;
+}
+
+.floating-btn i {
+  font-size: 1.25rem;
 }
 
 .pulse-ring {
@@ -1915,17 +1993,33 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 
-  .floating-whatsapp span {
+  .scroll-top-btn {
+    bottom: 1.25rem;
+    left: 1.25rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
+  .floating-contact-group {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    gap: 0.6rem;
+  }
+
+  .floating-btn span {
     display: none;
   }
 
-  .floating-whatsapp {
-    padding: 1rem;
-    width: 56px;
-    height: 56px;
+  .floating-btn {
+    padding: 0;
+    width: 52px;
+    height: 52px;
     justify-content: center;
-    bottom: 1.25rem;
-    right: 1.25rem;
+  }
+
+  .floating-btn i {
+    font-size: 1.35rem;
   }
 }
 

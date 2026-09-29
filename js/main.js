@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initContactForm();
   initScrollHeader();
+  initScrollTopButton();
 });
 
 /* ==========================================================================
@@ -78,14 +79,15 @@ function initComparisonSlider() {
 const PRODUCTS = [
   {
     id: 'unque-clasica',
-    name: 'Cocina a Leña Tipo Mueble Unque Clásica',
+    name: 'Cocina a Leña Nueva Unque Clásica (Tipo Mueble)',
     category: 'mueble',
-    categoryName: 'Cocina Tipo Mueble',
-    badge: 'Kit Completo Incluido',
+    categoryName: 'Cocina Nueva Tipo Mueble',
+    badge: 'Nueva · Kit Completo',
     badgeType: 'sale',
     image: 'img/cocina-mueble-unque-clasica.webp',
-    description: 'Tradicional cocina a leña esmaltada marca Unque en acabado ocre clásico. Estructura de alta inercia térmica reforzada con acero de calibre pesado y ladrillos refractarios de alta densidad. Rendimiento calórico superior y horneado uniforme. Incluye kit completo de cañones, sombrerete, manta pasamuros y pala atizadora.',
+    description: 'Cocina a leña 100% nueva de fábrica marca Unque en acabado ocre clásico. Estructura de alta inercia térmica con cubierta y piezas en fierro fundido y ladrillos refractarios de alta densidad. Rendimiento calórico superior y horneado uniforme. Incluye kit completo de cañones, sombrerete, manta pasamuros y pala atizadora.',
     specs: {
+      'Estado': '100% Nueva de Fábrica',
       'Cubierta': 'Fierro fundido rectificado con 3 platos desmontables',
       'Horno': 'Interior enlozado con registro térmico',
       'Cámara Térmica': 'Ladrillos refractarios de alta densidad sellados',
@@ -96,14 +98,15 @@ const PRODUCTS = [
   },
   {
     id: 'alcazar-blanca',
-    name: 'Cocina a Leña Tipo Mueble Alcázar Blanca',
+    name: 'Cocina a Leña Nueva Alcázar Blanca (Tipo Mueble)',
     category: 'mueble',
-    categoryName: 'Cocina Tipo Mueble',
-    badge: 'Kit Completo Incluido',
+    categoryName: 'Cocina Nueva Tipo Mueble',
+    badge: 'Nueva · Kit Completo',
     badgeType: 'sale',
     image: 'img/cocina-mueble-alcazar-blanca.webp',
-    description: 'Imponente cocina tradicional marca Alcázar en esmaltado blanco brillante con herrajes cromados y pasamanos perimetral. Excelente acumulación de calor para calefaccionar amplios espacios y preparar pan artesanal. Se entrega con su kit integral de evacuación y accesorios.',
+    description: 'Imponente cocina a leña nueva de fábrica marca Alcázar en esmaltado blanco brillante con herrajes cromados y pasamanos perimetral. Excelente acumulación de calor para calefaccionar amplios espacios y preparar pan artesanal. Se entrega nueva con su kit integral de evacuación y accesorios.',
     specs: {
+      'Estado': '100% Nueva de Fábrica',
       'Cubierta': '4 Platos en fierro fundido con aros reductores',
       'Acabado': 'Esmaltado vitrificado de alta resistencia',
       'Horno': 'Amplia capacidad con parrilla de fundición',
@@ -114,16 +117,17 @@ const PRODUCTS = [
   },
   {
     id: 'unque-caramelo',
-    name: 'Cocina Tipo Mueble Enlozada Caramelo Vintage',
+    name: 'Cocina a Leña Nueva Unque Caramelo (Tipo Mueble)',
     category: 'mueble',
-    categoryName: 'Cocina Tipo Mueble',
-    badge: 'Restaurada a Nuevo',
-    badgeType: 'garantia',
+    categoryName: 'Cocina Nueva Tipo Mueble',
+    badge: 'Nueva · Kit Completo',
+    badgeType: 'sale',
     image: 'img/cocina-mueble-enlozada-caramelo.jpg',
-    description: 'Modelo clásico del sur de Chile restaurado con terminación caramelo fuego. Cenicero independiente, regulador de tiro de precisión y chasis estructural reforzado para un funcionamiento confiable y prolongado. Lista para instalar con kit completo.',
+    description: 'Cocina a leña 100% nueva en clásica terminación caramelo vitrificado. Cenicero independiente, regulador de tiro de precisión y chasis firme con cubierta de fierro fundido. Lista para instalar con kit completo de cañones y accesorios.',
     specs: {
+      'Estado': '100% Nueva de Fábrica',
       'Cubierta': '3 Platos térmicos de fundición pesada',
-      'Estructura': 'Acero reforzado de alta resistencia térmica',
+      'Estructura': 'Chasis firme con piezas de fierro fundido',
       'Refractarios': 'Cámara sellada con mortero refractario',
       'Equipamiento': 'Incluye 4 cañones, manta, sombrerete y pala'
     },
@@ -131,14 +135,15 @@ const PRODUCTS = [
   },
   {
     id: 'krisolt-blanca',
-    name: 'Cocina a Leña Compacta Krisolt 1 Plato (Blanca)',
+    name: 'Cocina a Leña Nueva Krisolt 1 Plato (Blanca)',
     category: 'compacta',
-    categoryName: 'Cocina Compacta',
-    badge: 'Kit Completo Incluido',
+    categoryName: 'Cocina Nueva Compacta',
+    badge: 'Nueva · Kit Completo',
     badgeType: 'sale',
     image: 'img/cocina-economica-krisolt-blanca.webp',
-    description: 'Cocina a leña de formato compacto con 1 plato grande y aros reductores de expansión. Diseñada para un rápido encendido y óptimo rendimiento en cabañas, quinchos o espacios acogedores con bajo consumo de leña. Se entrega equipada con su kit completo de cañones, sombrerete, manta y pala.',
+    description: 'Cocina a leña de formato compacto 100% nueva con 1 plato grande y aros reductores de expansión. Diseñada para un rápido encendido y óptimo rendimiento en cabañas, quinchos o espacios acogedores con bajo consumo de leña. Se entrega equipada con su kit completo de cañones, sombrerete, manta y pala.',
     specs: {
+      'Estado': '100% Nueva de Fábrica',
       'Plato': '1 Plato de fierro fundido con aros concéntricos',
       'Dimensiones': '55 cm ancho x 35 cm fondo estándar',
       'Cámara': 'Refractarios interiores de alta retención térmica',
@@ -149,17 +154,18 @@ const PRODUCTS = [
   },
   {
     id: 'krisolt-cafe',
-    name: 'Cocina a Leña Compacta Krisolt 1 Plato (Café Ocre)',
+    name: 'Cocina a Leña Nueva Krisolt 1 Plato (Café Ocre)',
     category: 'compacta',
-    categoryName: 'Cocina Compacta',
-    badge: 'Kit Completo Incluido',
+    categoryName: 'Cocina Nueva Compacta',
+    badge: 'Nueva · Kit Completo',
     badgeType: 'sale',
     image: 'img/cocina-economica-krisolt-cafe.webp',
-    description: 'Versión ocre tradicional de la cocina compacta Krisolt. Cuenta con pasamanos perimetral en acero inoxidable, gaveta cenicero y puerta superior para recarga rápida. Incluye kit completo de instalación.',
+    description: 'Versión ocre tradicional 100% nueva de la cocina compacta Krisolt. Cuenta con pasamanos perimetral en acero inoxidable, gaveta cenicero y puerta superior para recarga rápida. Incluye kit completo de instalación.',
     specs: {
+      'Estado': '100% Nueva de Fábrica',
       'Plato': '1 Plato de fierro fundido macizo',
       'Medidas': '55 x 35 cm estándar',
-      'Estructura': 'Chasis de acero esmaltado horneado',
+      'Estructura': 'Cuerpo esmaltado con plato y piezas de fierro fundido',
       'Equipamiento': 'Incluye cañones, sombrerete, manta y pala',
       'Salida Cañón': '4 Pulgadas'
     },
@@ -167,14 +173,15 @@ const PRODUCTS = [
   },
   {
     id: 'termo-canon-inox',
-    name: 'Termo de Cañón en Acero Inoxidable Sanitario',
+    name: 'Termo de Cañón Nuevo en Acero Inoxidable Sanitario',
     category: 'accesorios',
-    categoryName: 'Termos y Ductos',
-    badge: 'Garantía de Reemplazo',
+    categoryName: 'Termos y Ductos Nuevos',
+    badge: 'Nuevo · Garantía de Taller',
     badgeType: 'inox',
     image: 'img/cocina-blanca-termo-inoxidable.jpg',
-    description: 'Dispositivo termosifón de acero inoxidable calidad 304 que aprovecha la energía térmica del tiro de la cocina para generar agua caliente sanitaria continua a costo cero. Respaldado con la garantía de Taller Montalba: ante cualquier desperfecto técnico, Marcelo Montalba responde con reparación o reemplazo inmediato.',
+    description: 'Dispositivo termosifón nuevo en acero inoxidable calidad 304 que aprovecha la energía térmica del tiro de la cocina para generar agua caliente sanitaria continua a costo cero. Respaldado con la garantía de Taller Montalba: ante cualquier desperfecto técnico, Marcelo Montalba responde con reparación o reemplazo inmediato.',
     specs: {
+      'Estado': '100% Nuevo de Fábrica',
       'Capacidad': '40 a 60 Litros continuos',
       'Material': 'Acero Inoxidable Sanitario Grado Alimenticio',
       'Control': 'Reloj termómetro análogo integrado',
@@ -184,14 +191,15 @@ const PRODUCTS = [
   },
   {
     id: 'termo-vertical-stock',
-    name: 'Estanque Termo Acumulador Vertical de Pie',
+    name: 'Estanque Termo Acumulador Vertical Nuevo (De Pie)',
     category: 'accesorios',
-    categoryName: 'Termos y Ductos',
-    badge: 'Garantía de Taller',
+    categoryName: 'Termos y Ductos Nuevos',
+    badge: 'Nuevo · Garantía de Taller',
     badgeType: 'inox',
     image: 'img/taller-cocinas-termos-stock.webp',
-    description: 'Estanque acumulador en acero inoxidable para circuitos de agua caliente por termosifón con serpentín interior en cocinas tradicionales. Alta capacidad de reserva para viviendas familiares y cabañas.',
+    description: 'Estanque acumulador nuevo en acero inoxidable para circuitos de agua caliente por termosifón con serpentín interior en cocinas tradicionales. Alta capacidad de reserva para viviendas familiares y cabañas.',
     specs: {
+      'Estado': '100% Nuevo de Fábrica',
       'Capacidad': '80 / 120 Litros',
       'Estructura': 'Acero inoxidable reforzado sobre base de apoyo',
       'Garantía': 'Respaldo técnico de Marcelo Montalba'
@@ -200,14 +208,15 @@ const PRODUCTS = [
   },
   {
     id: 'canones-galvanizados-combustion',
-    name: 'Ductos de Evacuación: Cañones Galvanizados y para Combustión',
+    name: 'Ductos de Evacuación Nuevos: Cañones Galvanizados y para Combustión',
     category: 'accesorios',
-    categoryName: 'Ductos de Evacuación',
-    badge: 'Venta por Unidad o Kit',
+    categoryName: 'Ductos Nuevos',
+    badge: 'Nuevos · Venta por Unidad o Kit',
     badgeType: 'sale',
     image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Suministramos cañones galvanizados de alto espesor en 4" y 5" para cocinas tradicionales, así como ductos especializados para estufas a combustión lenta (aclaramos que comercializamos ductos de alta calidad, pero nos dedicamos exclusivamente a la reparación de cocinas tradicionales). Disponibles también mantas pasamuros impermeables, sombreretes y codos.',
+    description: 'Suministramos cañones galvanizados de alto espesor nuevos en 4" y 5" para cocinas tradicionales, así como ductos nuevos especializados para estufas a combustión lenta (aclaramos que comercializamos ductos de alta calidad, pero nos dedicamos exclusivamente a la reparación de cocinas tradicionales). Disponibles también mantas pasamuros impermeables, sombreretes y codos.',
     specs: {
+      'Estado': 'Materiales Nuevos de Fábrica',
       'Cocinas a Leña': 'Cañones de 4" y 5" pulgadas galvanizados',
       'Estufas Combustión': 'Ductos para evacuación de estufas a combustión',
       'Complementos': 'Mantas pasamuros, sombreretes antiviento, codos y palas',
@@ -243,7 +252,7 @@ function initCatalogFilters() {
           <p style="color: var(--color-slate-500); max-width: 450px; margin: 0 auto 1.5rem;">
             ¿Buscas un repuesto o modelo específico? Consulta directamente a Marcelo Montalba por WhatsApp.
           </p>
-          <a href="https://wa.me/56912345678?text=Hola%20Marcelo,%20estoy%20buscando%20un%20producto%20o%20repuesto%20espec%C3%ADfico" target="_blank" class="btn btn-whatsapp">
+          <a href="https://wa.me/56995253536?text=Hola%20Marcelo,%20estoy%20buscando%20un%20producto%20o%20repuesto%20espec%C3%ADfico" target="_blank" class="btn btn-whatsapp">
             <i class="fa-brands fa-whatsapp"></i> Consultar a Marcelo
           </a>
         </div>
@@ -290,7 +299,7 @@ function initCatalogFilters() {
             <button class="btn btn-secondary btn-sm btn-quickview" data-id="${p.id}">
               <i class="fa-solid fa-eye"></i> Ver Ficha Técnica
             </button>
-            <a href="https://wa.me/56912345678?text=Hola%20Marcelo,%20me%20gustar%C3%ADa%20consultar%20por:%20${encodeURIComponent(p.name)}" target="_blank" class="btn btn-primary btn-sm">
+            <a href="https://wa.me/56995253536?text=Hola%20Marcelo,%20me%20gustar%C3%ADa%20consultar%20por:%20${encodeURIComponent(p.name)}" target="_blank" class="btn btn-primary btn-sm">
               <i class="fa-brands fa-whatsapp"></i> Consultar
             </a>
           </div>
@@ -381,7 +390,7 @@ function openProductModal(productId) {
   }
 
   const whatsappBtn = document.getElementById('modalWhatsappBtn');
-  whatsappBtn.href = `https://wa.me/56912345678?text=Hola%20Marcelo%20(Taller%20Montalba),%20deseo%20consultar%20detalles%20sobre:%20${encodeURIComponent(product.name)}`;
+  whatsappBtn.href = `https://wa.me/56995253536?text=Hola%20Marcelo%20(Taller%20Montalba),%20deseo%20consultar%20detalles%20sobre:%20${encodeURIComponent(product.name)}`;
 
   modalOverlay.classList.add('active');
 }
@@ -414,7 +423,7 @@ function initRestorationCalculator() {
     const extras = [];
     if (checkTermo && checkTermo.checked) extras.push('Termo Cañón Inox (+agua caliente sanitaria)');
     if (checkCanones && checkCanones.checked) extras.push('Kit de evacuación (cañones, manta, sombrerete, pala)');
-    if (checkTraslado && checkTraslado.checked) extras.push('Traslado directo a domicilio (según cercanía)');
+    if (checkTraslado && checkTraslado.checked) extras.push('Traslado directo (solo dentro del sector / cercanía)');
 
     if (extras.length > 0) {
       summaryExtras.textContent = extras.join(', ');
@@ -438,7 +447,7 @@ function initRestorationCalculator() {
 - Adicionales: ${extras.length > 0 ? extras.join(', ') : 'Solo restauración básica'}
 Me gustaría enviarte imágenes para una evaluación detallada en el taller de Chacabuco 128, Galvarino. Muchas gracias.`;
 
-    whatsappQuoteBtn.href = `https://wa.me/56912345678?text=${encodeURIComponent(msg)}`;
+    whatsappQuoteBtn.href = `https://wa.me/56995253536?text=${encodeURIComponent(msg)}`;
   }
 
   [stoveType, stoveState, checkTermo, checkCanones, checkTraslado].forEach(el => {
@@ -550,7 +559,30 @@ function initContactForm() {
 - Asunto: ${service}
 - Consulta: ${message}`;
 
-    const url = `https://wa.me/56912345678?text=${encodeURIComponent(payload)}`;
+    const url = `https://wa.me/56995253536?text=${encodeURIComponent(payload)}`;
     window.open(url, '_blank');
+  });
+}
+
+/* ==========================================================================
+   9. SCROLL TO TOP BUTTON
+   ========================================================================== */
+function initScrollTopButton() {
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (!scrollTopBtn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 350) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 }
