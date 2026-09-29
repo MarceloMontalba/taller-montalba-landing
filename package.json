@@ -1,0 +1,18 @@
+{
+  "name": "taller-montalba-landing",
+  "version": "1.0.0",
+  "description": "Landing page artesanal para Taller Montalba - Restauración y Venta de Cocinas a Leña Tradicionales",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "cocinas-a-leña",
+    "restauracion",
+    "taller-montalba",
+    "landing-page"
+  ],
+  "author": "Taller Montalba",
+  "license": "ISC"
+}
