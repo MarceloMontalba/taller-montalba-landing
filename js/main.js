@@ -9,11 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initComparisonSlider();
   initCatalogFilters();
   initProductModal();
-  initRestorationCalculator();
+  initUnifiedCotizadorContact();
   initFaqAccordion();
+  initNavDropdown();
   initMobileNav();
-  initContactForm();
   initScrollHeader();
+  initScrollSpy();
   initScrollTopButton();
 });
 
@@ -396,65 +397,206 @@ function openProductModal(productId) {
 }
 
 /* ==========================================================================
-   4. RESTORATION QUOTE CALCULATOR & WHATSAPP GENERATOR
+   4. UNIFIED RESTORATION COTIZADOR & TECHNICAL CONTACT HANDLER
    ========================================================================== */
-function initRestorationCalculator() {
+function initUnifiedCotizadorContact() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const formName = document.getElementById('formName');
+  const formPhone = document.getElementById('formPhone');
+  const formCity = document.getElementById('formCity');
+  const formService = document.getElementById('formService');
+  const formMessage = document.getElementById('formMessage');
+  const emailBtn = document.getElementById('formEmailBtn');
+
+  // Restoration options block & controls
+  const restorationBlock = document.getElementById('restorationOptionsBlock');
   const stoveType = document.getElementById('calcStoveType');
   const stoveState = document.getElementById('calcStoveState');
   const checkTermo = document.getElementById('calcAddTermo');
   const checkCanones = document.getElementById('calcAddCanones');
   const checkTraslado = document.getElementById('calcAddTraslado');
-  
+
+  // Summary elements
+  const summaryService = document.getElementById('summaryService');
   const summaryStove = document.getElementById('summaryStove');
   const summaryScope = document.getElementById('summaryScope');
   const summaryExtras = document.getElementById('summaryExtras');
   const summaryEstTime = document.getElementById('summaryEstTime');
-  const whatsappQuoteBtn = document.getElementById('calcWhatsappBtn');
 
-  if (!stoveType || !stoveState || !whatsappQuoteBtn) return;
+  const summaryStoveRow = document.getElementById('summaryStoveRow');
+  const summaryScopeRow = document.getElementById('summaryScopeRow');
+  const summaryExtrasRow = document.getElementById('summaryExtrasRow');
 
-  function updateCalculator() {
-    const typeText = stoveType.options[stoveType.selectedIndex].text;
-    const stateText = stoveState.options[stoveState.selectedIndex].text;
-    
-    summaryStove.textContent = typeText;
-    summaryScope.textContent = stateText;
+  // Dynamic form UI elements
+  const formMessageLabel = document.getElementById('formMessageLabel');
+  const photoNoticeBox = document.getElementById('photoNoticeBox');
+  const noticeIcon = document.getElementById('noticeIcon');
+  const noticeText = document.getElementById('noticeText');
+  const submitBtnText = document.getElementById('submitBtnText');
 
-    const extras = [];
-    if (checkTermo && checkTermo.checked) extras.push('Termo Cañón Inox (+agua caliente sanitaria)');
-    if (checkCanones && checkCanones.checked) extras.push('Kit de evacuación (cañones, manta, sombrerete, pala)');
-    if (checkTraslado && checkTraslado.checked) extras.push('Traslado directo (solo dentro del sector / cercanía)');
+  function updateSummary() {
+    const selectedServiceVal = formService ? formService.value : 'restauracion';
+    const selectedServiceText = formService ? formService.options[formService.selectedIndex].text : 'Reparar o Restaurar mi Cocina a Leña';
 
-    if (extras.length > 0) {
-      summaryExtras.textContent = extras.join(', ');
+    if (summaryService) summaryService.textContent = selectedServiceText;
+
+    const isRestoration = selectedServiceVal === 'restauracion';
+
+    if (restorationBlock) {
+      restorationBlock.style.display = isRestoration ? 'block' : 'none';
+    }
+    if (summaryStoveRow) summaryStoveRow.style.display = isRestoration ? 'flex' : 'none';
+    if (summaryScopeRow) summaryScopeRow.style.display = isRestoration ? 'flex' : 'none';
+    if (summaryExtrasRow) summaryExtrasRow.style.display = isRestoration ? 'flex' : 'none';
+
+    // Adapt contextual hints, placeholders and buttons
+    if (selectedServiceVal === 'restauracion') {
+      if (formMessage) formMessage.placeholder = 'Ej: La cocina humea mucho al encender, se rompieron los ladrillos o es una cocina antigua heredada...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Cuéntanos más detalles sobre tu cocina (opcional):';
+      if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-camera';
+      if (noticeText) noticeText.innerHTML = '<strong>¿Tienes fotos de tu cocina?</strong> Al presionar el botón se abrirá WhatsApp para que puedas adjuntárselas directamente a Marcelo y recibir una orientación precisa.';
+      if (submitBtnText) submitBtnText.textContent = 'Enviar Consulta / Fotos a Marcelo';
+    } else if (selectedServiceVal === 'cocina-mueble' || selectedServiceVal === 'cocina-compacta') {
+      if (formMessage) formMessage.placeholder = 'Ej: ¿Tienes stock para entrega inmediata? ¿Haces despacho a mi sector? ¿Puedo ir a verla al taller?...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Dudas sobre disponibilidad, despacho o entrega (opcional):';
+      if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-box-open';
+      if (noticeText) noticeText.innerHTML = '<strong>Incluye Kit Completo:</strong> Todos nuestros modelos nuevos vienen con cañones, manta pasamuros, sombrerete, pala y garantía de reparación directa en taller.';
+      if (submitBtnText) submitBtnText.textContent = 'Consultar Disponibilidad por WhatsApp';
+    } else if (selectedServiceVal === 'termos-canones') {
+      if (formMessage) formMessage.placeholder = 'Ej: ¿Qué medidas de cañones tienes disponibles? ¿O qué capacidad de termo inox me recomiendas?...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Detalle de los artículos o medidas que necesitas (opcional):';
+      if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-fire-flame-curved';
+      if (noticeText) noticeText.innerHTML = '<strong>Fierro y Acero Inoxidable:</strong> Fabricación resistente de termos y cañones compatibles con cocinas tradicionales a leña.';
+      if (submitBtnText) submitBtnText.textContent = 'Consultar Repuestos / Accesorios por WhatsApp';
     } else {
-      summaryExtras.textContent = 'Ninguno seleccionado';
+      if (formMessage) formMessage.placeholder = 'Ej: Horarios de atención para llevar una cocina al taller, dudas sobre repuestos o ubicación en Chacabuco 128...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Detalle de tu consulta (opcional):';
+      if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-location-dot';
+      if (noticeText) noticeText.innerHTML = '<strong>Atención Directa:</strong> Marcelo Montalba atiende personalmente cada requerimiento en el taller de Chacabuco 128, Galvarino.';
+      if (submitBtnText) submitBtnText.textContent = 'Enviar Consulta a Marcelo por WhatsApp';
     }
 
-    // Estimated work duration
-    if (stoveState.value === 'lata-total') {
-      summaryEstTime.textContent = '7 a 12 días hábiles aprox.';
-    } else if (stoveState.value === 'encementado') {
-      summaryEstTime.textContent = '3 a 6 días hábiles aprox.';
+    if (isRestoration) {
+      const typeText = stoveType ? stoveType.options[stoveType.selectedIndex].text : '';
+      const stateText = stoveState ? stoveState.options[stoveState.selectedIndex].text : '';
+      
+      if (summaryStove) summaryStove.textContent = typeText;
+      if (summaryScope) summaryScope.textContent = stateText;
+
+      const extras = [];
+      if (checkTermo && checkTermo.checked) extras.push('Termo Cañón Inox');
+      if (checkCanones && checkCanones.checked) extras.push('Kit de evacuación (cañones, manta, sombrerete, pala)');
+      if (checkTraslado && checkTraslado.checked) extras.push('Traslado directo (solo dentro del sector)');
+
+      if (summaryExtras) {
+        summaryExtras.textContent = extras.length > 0 ? extras.join(', ') : 'Ninguno seleccionado';
+      }
+
+      if (summaryEstTime) {
+        if (stoveState && stoveState.value === 'lata-total') {
+          summaryEstTime.textContent = '7 a 12 días hábiles aprox. (Restauración completa)';
+        } else if (stoveState && stoveState.value === 'humo-latas') {
+          summaryEstTime.textContent = '5 a 8 días hábiles aprox. (Cambio de latas)';
+        } else if (stoveState && stoveState.value === 'ladrillos') {
+          summaryEstTime.textContent = '3 a 5 días hábiles aprox. (Ladrillos refractarios)';
+        } else if (stoveState && stoveState.value === 'cubierta') {
+          summaryEstTime.textContent = '3 a 6 días hábiles aprox. (Rectificación de cubierta)';
+        } else if (stoveState && stoveState.value === 'enlozado-fabrica') {
+          summaryEstTime.textContent = '10 a 15 días hábiles aprox. (Enlozado vitrificado)';
+        } else {
+          summaryEstTime.textContent = 'Diagnóstico preliminar por fotos con Marcelo';
+        }
+      }
     } else {
-      summaryEstTime.textContent = '5 a 8 días hábiles aprox.';
+      if (summaryEstTime) {
+        if (selectedServiceVal === 'cocina-mueble' || selectedServiceVal === 'cocina-compacta') {
+          summaryEstTime.textContent = 'Entrega inmediata / Retiro en taller o flete en el sector';
+        } else {
+          summaryEstTime.textContent = 'Atención directa en taller Galvarino';
+        }
+      }
     }
-
-    // Build WhatsApp message
-    const msg = `Hola Marcelo (Taller Montalba), deseo solicitar una cotización técnica para la restauración de mi cocina a leña:
-- Modelo o formato: ${typeText}
-- Intervención estimada: ${stateText}
-- Adicionales: ${extras.length > 0 ? extras.join(', ') : 'Solo restauración básica'}
-Me gustaría enviarte imágenes para una evaluación detallada en el taller de Chacabuco 128, Galvarino. Muchas gracias.`;
-
-    whatsappQuoteBtn.href = `https://wa.me/56995253536?text=${encodeURIComponent(msg)}`;
   }
 
+  // Event listeners for dynamic updates
+  if (formService) formService.addEventListener('change', updateSummary);
   [stoveType, stoveState, checkTermo, checkCanones, checkTraslado].forEach(el => {
-    if (el) el.addEventListener('change', updateCalculator);
+    if (el) el.addEventListener('change', updateSummary);
   });
 
-  updateCalculator();
+  // Build payload text
+  function buildMessagePayload() {
+    const name = formName ? formName.value.trim() : '';
+    const phone = formPhone ? formPhone.value.trim() : '';
+    const city = formCity ? formCity.value.trim() : '';
+    const serviceVal = formService ? formService.value : 'restauracion';
+    const serviceText = formService ? formService.options[formService.selectedIndex].text : '';
+    const message = formMessage ? formMessage.value.trim() : '';
+
+    let payload = `Hola Marcelo (Taller Montalba), te contacto desde el sitio web:\n`;
+    payload += `• Nombre: ${name}\n`;
+    payload += `• Teléfono: ${phone}\n`;
+    payload += `• Sector / Comuna: ${city || 'No especificada'}\n`;
+    payload += `• Requerimiento: ${serviceText}\n`;
+
+    if (serviceVal === 'restauracion') {
+      const typeText = stoveType ? stoveType.options[stoveType.selectedIndex].text : '';
+      const stateText = stoveState ? stoveState.options[stoveState.selectedIndex].text : '';
+      const extras = [];
+      if (checkTermo && checkTermo.checked) extras.push('Termo Cañón Inox');
+      if (checkCanones && checkCanones.checked) extras.push('Kit de evacuación');
+      if (checkTraslado && checkTraslado.checked) extras.push('Traslado dentro del sector');
+
+      payload += `• Formato de cocina: ${typeText}\n`;
+      payload += `• Intervención técnica: ${stateText}\n`;
+      payload += `• Adicionales: ${extras.length > 0 ? extras.join(', ') : 'Ninguno'}\n`;
+    }
+
+    if (message) {
+      payload += `• Detalle o consulta: ${message}\n`;
+    }
+
+    return { name, phone, payload };
+  }
+
+  // Handle WhatsApp Submit
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = buildMessagePayload();
+
+    if (!data.name || !data.phone) {
+      alert('Por favor ingresa tu nombre y teléfono de contacto.');
+      return;
+    }
+
+    const url = `https://wa.me/56995253536?text=${encodeURIComponent(data.payload)}`;
+    window.open(url, '_blank');
+  });
+
+  // Handle Email Button Click
+  if (emailBtn) {
+    emailBtn.addEventListener('click', () => {
+      const data = buildMessagePayload();
+
+      if (!data.name || !data.phone) {
+        alert('Por favor ingresa al menos tu nombre y teléfono antes de enviar por correo.');
+        return;
+      }
+
+      const subject = `Consulta Taller Montalba - ${data.name}`;
+      const mailtoUrl = `mailto:montalbalex.mamg@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(data.payload)}`;
+      window.location.href = mailtoUrl;
+    });
+  }
+
+  // Initial run
+  updateSummary();
 }
 
 /* ==========================================================================
@@ -485,7 +627,40 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   6. MOBILE NAVIGATION
+   6. NAVIGATION DROPDOWN ("MÁS")
+   ========================================================================== */
+function initNavDropdown() {
+  const dropdown = document.getElementById('navMoreDropdown');
+  const toggleBtn = document.getElementById('navDropdownToggle');
+  if (!dropdown || !toggleBtn) return;
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropdown.classList.toggle('active');
+    const isExpanded = dropdown.classList.contains('active');
+    toggleBtn.setAttribute('aria-expanded', isExpanded);
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('active');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close dropdown when clicking any link inside
+  dropdown.querySelectorAll('.nav-dropdown-link').forEach(link => {
+    link.addEventListener('click', () => {
+      dropdown.classList.remove('active');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+/* ==========================================================================
+   7. MOBILE NAVIGATION
    ========================================================================== */
 function initMobileNav() {
   const toggleBtn = document.getElementById('menuToggle');
@@ -531,37 +706,64 @@ function initScrollHeader() {
   }, { passive: true });
 }
 
+
 /* ==========================================================================
-   8. CONTACT FORM SUBMISSION TO WHATSAPP
+   8. ACTIVE SECTION SCROLLSPY
    ========================================================================== */
-function initContactForm() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
+function initScrollSpy() {
+  const sections = document.querySelectorAll('section[id], header[id], div[id="inicio"]');
+  const navLinks = document.querySelectorAll('.main-nav a.nav-link, .nav-dropdown-menu a.nav-dropdown-link');
+  const moreDropdownBtn = document.getElementById('navDropdownToggle');
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  if (!navLinks.length) return;
 
-    const name = document.getElementById('formName').value.trim();
-    const phone = document.getElementById('formPhone').value.trim();
-    const city = document.getElementById('formCity').value.trim();
-    const service = document.getElementById('formService').value;
-    const message = document.getElementById('formMessage').value.trim();
+  function onScroll() {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const headerOffset = 150;
+    let currentSectionId = '';
 
-    if (!name || !phone || !message) {
-      alert('Por favor completa los campos requeridos para enviar tu consulta.');
-      return;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - headerOffset;
+      const sectionHeight = section.offsetHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
+
+    // If near bottom of the page, activate the contact section
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 90) {
+      currentSectionId = 'contacto';
     }
 
-    const payload = `Hola Marcelo (Taller Montalba), te contacto desde el sitio web:
-- Nombre: ${name}
-- Teléfono / WhatsApp: ${phone}
-- Comuna o Sector: ${city || 'No especificada'}
-- Asunto: ${service}
-- Consulta: ${message}`;
+    if (!currentSectionId && scrollY < 200) {
+      currentSectionId = 'inicio';
+    }
 
-    const url = `https://wa.me/56995253536?text=${encodeURIComponent(payload)}`;
-    window.open(url, '_blank');
-  });
+    let isInsideMoreDropdown = false;
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      if (href === `#${currentSectionId}`) {
+        link.classList.add('active');
+        if (link.classList.contains('nav-dropdown-link')) {
+          isInsideMoreDropdown = true;
+        }
+      }
+    });
+
+    // If active section is inside the "Más" dropdown (taller, ubicacion, faq), highlight "Más"
+    if (moreDropdownBtn) {
+      if (isInsideMoreDropdown || currentSectionId === 'taller' || currentSectionId === 'ubicacion' || currentSectionId === 'faq') {
+        moreDropdownBtn.classList.add('active');
+      } else {
+        moreDropdownBtn.classList.remove('active');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
 /* ==========================================================================

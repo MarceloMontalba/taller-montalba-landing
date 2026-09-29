@@ -76,10 +76,26 @@
       <nav class="main-nav" id="mainNav">
         <a href="#inicio" class="nav-link">Inicio</a>
         <a href="#restauraciones" class="nav-link">Restauraciones</a>
-        <a href="#cotizador" class="nav-link">Cotizador</a>
         <a href="#catalogo" class="nav-link">Productos</a>
-        <a href="#taller" class="nav-link">El Taller</a>
-        <a href="#ubicacion" class="nav-link">Ubicación</a>
+
+        <!-- Dropdown "Más" for secondary items on desktop / tablet -->
+        <div class="nav-dropdown" id="navMoreDropdown">
+          <button class="nav-link nav-dropdown-btn" id="navDropdownToggle" type="button" aria-expanded="false" aria-label="Ver más secciones">
+            Más <i class="fa-solid fa-chevron-down nav-dropdown-icon"></i>
+          </button>
+          <div class="nav-dropdown-menu" id="navDropdownMenu">
+            <a href="#taller" class="nav-dropdown-link">El Taller</a>
+            <a href="#faq" class="nav-dropdown-link">Preguntas Frecuentes</a>
+            <a href="#ubicacion" class="nav-dropdown-link">Ubicación</a>
+          </div>
+        </div>
+
+        <!-- Direct items displayed in mobile drawer menu -->
+        <a href="#taller" class="nav-link nav-link-mobile-only">El Taller</a>
+        <a href="#faq" class="nav-link nav-link-mobile-only">Preguntas Frecuentes</a>
+        <a href="#ubicacion" class="nav-link nav-link-mobile-only">Ubicación</a>
+
+        <a href="#contacto" class="nav-link nav-link-cta">Cotizar y Contacto</a>
       </nav>
 
       <div class="nav-cta">
@@ -308,113 +324,9 @@
             </div>
           </div>
 
-          <a href="https://wa.me/56995253536?text=Hola%20Marcelo,%20quisiera%20enviarte%20im%C3%A1genes%20de%20mi%20cocina%20para%20una%20evaluaci%C3%B3n%20t%C3%A9cnica"
-            target="_blank" class="btn btn-whatsapp btn-lg">
-            <i class="fa-brands fa-whatsapp"></i> Solicitar Evaluación por WhatsApp
+          <a href="#contacto" class="btn btn-whatsapp btn-lg">
+            <i class="fa-brands fa-whatsapp"></i> Solicitar Evaluación o Cotización
           </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTERACTIVE RESTORATION CALCULATOR / ADVISOR -->
-  <section class="section-calculator" id="cotizador">
-    <div class="container">
-      <div class="quote-box">
-        <div class="text-center center-box" style="margin-bottom: 2.5rem;">
-          <span class="section-tag"><i class="fa-solid fa-calculator"></i> Orientación de Presupuesto</span>
-          <h2 class="section-title">Cotizador Técnico de Restauración</h2>
-          <p class="section-subtitle center-box">
-            Selecciona la configuración de tu cocina a leña y recibe una estimación técnica para coordinar su ingreso al
-            taller en Galvarino.
-          </p>
-        </div>
-
-        <div class="quote-grid">
-          <!-- Form controls -->
-          <div class="quote-form-left">
-            <div class="form-group">
-              <label class="form-label" for="calcStoveType">1. Tipo o Formato de Cocina:</label>
-              <select id="calcStoveType" class="form-select">
-                <option value="mueble-3-4" selected>Cocina Tipo Mueble (3 o 4 platos · Ej: Unque, Alcázar)</option>
-                <option value="mueble-2">Cocina Tipo Mueble Mediana (2 platos)</option>
-                <option value="compacta-1">Cocina a Leña Compacta (1 plato · Ej: Krisolt)</option>
-                <option value="antigua">Cocina Antigua Tradicional / Hierro Fundido Clásico</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="calcStoveState">2. Alcance del Trabajo Requerido:</label>
-              <select id="calcStoveState" class="form-select">
-                <option value="lata-total" selected>Restauración Estructural: Reemplazo de paneles y cámara refractaria
-                </option>
-                <option value="encementado">Mantenimiento Térmico: Renovación de ladrillos refractarios y sellos
-                </option>
-                <option value="cubierta-completa">Rectificación de Cubierta: Planchas de fundición, tiraje y herrajes
-                </option>
-                <option value="enlozado-fabrica">Restauración Integral con Esmaltado / Enlozado al Horno</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">3. Complementos / Traslado:</label>
-              <div style="display: flex; flex-direction: column; gap: 0.65rem; margin-top: 0.5rem;">
-                <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer; font-size: 0.95rem;">
-                  <input type="checkbox" id="calcAddTermo"
-                    style="width: 18px; height: 18px; accent-color: var(--color-primary);">
-                  Incorporar Termo de Cañón en Acero Inoxidable (Agua caliente continua)
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer; font-size: 0.95rem;">
-                  <input type="checkbox" id="calcAddCanones"
-                    style="width: 18px; height: 18px; accent-color: var(--color-primary);">
-                  Kit de evacuación: Cañones, manta pasamuros, sombrerete y pala atizadora
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer; font-size: 0.95rem;">
-                  <input type="checkbox" id="calcAddTraslado"
-                    style="width: 18px; height: 18px; accent-color: var(--color-primary);">
-                  Coordinar traslado (solo si es dentro del sector / cercanía)
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Summary card -->
-          <div class="quote-summary-card">
-            <div class="quote-summary-header">
-              <h4>Resumen de Solicitud</h4>
-              <p>Chacabuco 128, Galvarino · Diagnóstico directo de Marcelo Montalba</p>
-            </div>
-
-            <div class="quote-details-list">
-              <div class="quote-detail-item">
-                <span>Modelo:</span>
-                <strong id="summaryStove">Cocina Tipo Mueble (3 o 4 platos)</strong>
-              </div>
-              <div class="quote-detail-item">
-                <span>Intervención técnica:</span>
-                <strong id="summaryScope" style="text-align: right; max-width: 60%;">Restauración estructural y
-                  refractarios</strong>
-              </div>
-              <div class="quote-detail-item">
-                <span>Adicionales:</span>
-                <strong id="summaryExtras">Ninguno seleccionado</strong>
-              </div>
-              <div class="quote-detail-item">
-                <span>Plazo estimado en taller:</span>
-                <strong id="summaryEstTime" style="color: #ff9f43;">7 a 12 días aprox.</strong>
-              </div>
-            </div>
-
-            <div class="quote-whatsapp-box">
-              <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 1rem;">
-                <i class="fa-solid fa-comment-dots" style="color: #25d366;"></i> Envía este detalle estructurado por
-                WhatsApp para coordinar la inspección:
-              </p>
-              <a href="#" id="calcWhatsappBtn" target="_blank" class="btn btn-whatsapp" style="width: 100%;">
-                <i class="fa-brands fa-whatsapp"></i> Consultar Presupuesto con Marcelo
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -486,11 +398,11 @@
             trato honesto y máxima durabilidad en cocinas a leña tradicionales.
           </p>
           <p>
-            Hoy, <strong>Marcelo Montalba</strong> continúa la labor en <strong>Chacabuco 128, Galvarino</strong>.
-            Marcelo
-            atiende cada proyecto de forma directa: evalúa la firmeza del fierro fundido, reemplaza planchas y piezas
-            gastadas
-            por fierro de buen espesor y reconstruye cámaras de combustión con ladrillos refractarios para asegurar un
+            Hoy, <strong>Marcelo Montalba</strong> continúa la labor en <strong>Chacabuco 128, Galvarino</strong>,
+            atendiendo cada proyecto de forma personal: evalúa la firmeza del fierro fundido, reemplaza planchas y
+            piezas
+            gastadas por fierro de buen espesor y reconstruye cámaras de combustión con ladrillos refractarios para
+            asegurar un
             rendimiento térmico óptimo.
           </p>
           <p>
@@ -635,20 +547,163 @@
     </div>
   </section>
 
-  <!-- CONTACT PANEL -->
+  <!-- UNIFIED COTIZADOR & CONTACTO DIRECTO SECTION -->
   <section class="section-contact" id="contacto">
+    <!-- Anchor alias to preserve #cotizador links smoothly -->
+    <div id="cotizador" style="position: relative; top: -80px; visibility: hidden;"></div>
     <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info-panel">
-          <div>
-            <span class="section-tag dark"><i class="fa-solid fa-map-pin"></i> Taller Montalba</span>
-            <h3>Visítanos en Chacabuco 128</h3>
-            <p>
-              Puedes traer tu cocina para una inspección técnica o venir a conocer los modelos disponibles para entrega
-              inmediata con su kit completo de cañones, manta, pala y sombrero.
-            </p>
+      <div class="text-center center-box" style="margin-bottom: 2.5rem;">
+        <span class="section-tag"><i class="fa-solid fa-calculator"></i> Cotizador & Consulta Directa</span>
+        <h2 class="section-title">Cotiza tu Proyecto o Consulta con Marcelo</h2>
+        <p class="section-subtitle center-box">
+          Configura una estimación técnica para la restauración de tu cocina a leña o envíanos tu consulta sobre productos
+          nuevos, repuestos e instalación en Galvarino y sectores cercanos.
+        </p>
+      </div>
 
-            <div class="contact-details-list">
+      <div class="contact-grid">
+        <!-- FORM / CONFIGURATOR PANEL -->
+        <div class="contact-form-panel">
+          <h4 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+            <i class="fa-solid fa-clipboard-list" style="color: var(--color-primary);"></i> Formulario & Cotizador
+          </h4>
+          <form id="contactForm">
+            <div class="form-group">
+              <label class="form-label" for="formName">Nombre completo:</label>
+              <input type="text" id="formName" class="form-input" placeholder="Tu nombre y apellido" required>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="formPhone">Teléfono / WhatsApp:</label>
+                <input type="tel" id="formPhone" class="form-input" placeholder="+56 9 ..." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formCity">Comuna o Sector:</label>
+                <input type="text" id="formCity" class="form-input" placeholder="Ej: Galvarino, Traiguén..." required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="formService">¿En qué te podemos ayudar?:</label>
+              <select id="formService" class="form-select">
+                <option value="restauracion" selected>Reparar o Restaurar mi Cocina a Leña</option>
+                <option value="cocina-mueble">Comprar Cocina Tipo Mueble (Nueva con Kit Incluido)</option>
+                <option value="cocina-compacta">Comprar Cocina Chica / 1 Plato (Nueva con Kit Incluido)</option>
+                <option value="termos-canones">Comprar Termo Inox, Cañones o Repuestos</option>
+                <option value="consulta-general">Otra consulta / Visita al Taller en Galvarino</option>
+              </select>
+            </div>
+
+            <!-- Dynamic Restoration Options (shown when 'restauracion' is selected) -->
+            <div id="restorationOptionsBlock" style="background: var(--color-cream-100); border: 1px solid var(--color-cream-300); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.25rem;">
+              <h6 style="font-size: 0.95rem; font-weight: 700; color: var(--color-dark-900); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.4rem;">
+                <i class="fa-solid fa-wrench" style="color: var(--color-primary);"></i> Sobre tu cocina actual
+              </h6>
+
+              <div class="form-group">
+                <label class="form-label" for="calcStoveType" style="font-size: 0.85rem;">¿Qué tipo de cocina tienes más o menos?</label>
+                <select id="calcStoveType" class="form-select" style="font-size: 0.9rem; padding: 0.65rem 0.85rem;">
+                  <option value="mueble-3-4" selected>Cocina tradicional grande con horno (3 o 4 platos · Ej: Alcázar, Unque)</option>
+                  <option value="mueble-2">Cocina mediana (2 platos)</option>
+                  <option value="compacta-1">Cocina chica o compacta (1 plato · Ej: Krisolt)</option>
+                  <option value="antigua">Cocina antigua clásica de fierro fundido</option>
+                  <option value="no-se">No sé el modelo / Prefiero que Marcelo la revise con fotos</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="calcStoveState" style="font-size: 0.85rem;">¿Qué problema tiene o qué necesitas hacerle?</label>
+                <select id="calcStoveState" class="form-select" style="font-size: 0.9rem; padding: 0.65rem 0.85rem;">
+                  <option value="lata-total" selected>Restauración completa: cambiar latas quemadas, ladrillos y dejarla impecable</option>
+                  <option value="humo-latas">Humea o se quemaron las latas por dentro (fondo o laterales)</option>
+                  <option value="ladrillos">Los ladrillos refractarios se cayeron o quebraron</option>
+                  <option value="cubierta">Las planchas de arriba están gastadas, chuecas o quebradas</option>
+                  <option value="enlozado-fabrica">Quiero enlozarla / dejarla esmaltada de fábrica</option>
+                  <option value="diagnostico-fotos">No estoy seguro / Prefiero enviar fotos para diagnóstico</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label" style="font-size: 0.85rem;">¿Te gustaría agregar algo más?:</label>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.35rem;">
+                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.88rem; color: var(--color-dark-800);">
+                    <input type="checkbox" id="calcAddTermo" style="width: 17px; height: 17px; accent-color: var(--color-primary);">
+                    Poner Termo de Cañón (para tener agua caliente con la leña)
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.88rem; color: var(--color-dark-800);">
+                    <input type="checkbox" id="calcAddCanones" style="width: 17px; height: 17px; accent-color: var(--color-primary);">
+                    Cañones nuevos o kit de evacuación
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.88rem; color: var(--color-dark-800);">
+                    <input type="checkbox" id="calcAddTraslado" style="width: 17px; height: 17px; accent-color: var(--color-primary);">
+                    Consultar por traslado (solo dentro de la zona de Galvarino)
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="formMessage" id="formMessageLabel">Cuéntanos más detalles (opcional):</label>
+              <textarea id="formMessage" class="form-textarea" rows="3"
+                placeholder="Ej: La cocina humea mucho al encender o es una cocina antigua heredada..."></textarea>
+            </div>
+
+            <div id="photoNoticeBox" style="background: rgba(37, 211, 102, 0.1); border: 1px solid rgba(37, 211, 102, 0.3); border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.65rem;">
+              <i class="fa-solid fa-camera" id="noticeIcon" style="color: #25d366; font-size: 1.1rem; flex-shrink: 0;"></i>
+              <span id="noticeText" style="font-size: 0.82rem; color: var(--color-dark-800); line-height: 1.35;">
+                <strong>¿Tienes fotos de tu cocina?</strong> Al presionar el botón se abrirá WhatsApp para que puedas adjuntárselas directamente a Marcelo y recibir una orientación precisa.
+              </span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <button type="submit" id="formSubmitBtn" class="btn btn-whatsapp btn-lg" style="width: 100%; justify-content: center;">
+                <i class="fa-brands fa-whatsapp"></i> <span id="submitBtnText">Enviar Consulta / Fotos a Marcelo</span>
+              </button>
+              <button type="button" id="formEmailBtn" class="btn btn-email btn-lg" style="width: 100%; justify-content: center; font-size: 1rem;">
+                <i class="fa-solid fa-envelope"></i> Enviar Solicitud por Correo Electrónico
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- SUMMARY & WORKSHOP INFO PANEL -->
+        <div class="contact-info-panel" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <!-- Live Summary Card -->
+            <div class="quote-summary-header" style="border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 1rem; margin-bottom: 1.25rem;">
+              <span class="section-tag dark" style="font-size: 0.72rem; padding: 0.2rem 0.6rem; margin-bottom: 0.5rem; display: inline-block;">
+                <i class="fa-solid fa-list-check"></i> Resumen Técnico
+              </span>
+              <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.25rem;">Detalle de la Solicitud</h4>
+              <p style="font-size: 0.82rem; color: var(--color-slate-400); margin: 0;">Diagnóstico y atención directa de Marcelo Montalba</p>
+            </div>
+
+            <div class="quote-details-list" style="margin-bottom: 2rem;">
+              <div class="quote-detail-item">
+                <span>Requerimiento:</span>
+                <strong id="summaryService" style="text-align: right; max-width: 60%;">Restauración de Cocina a Leña</strong>
+              </div>
+              <div class="quote-detail-item" id="summaryStoveRow">
+                <span>Modelo / Formato:</span>
+                <strong id="summaryStove" style="text-align: right; max-width: 60%;">Cocina Tipo Mueble (3 o 4 platos)</strong>
+              </div>
+              <div class="quote-detail-item" id="summaryScopeRow">
+                <span>Intervención técnica:</span>
+                <strong id="summaryScope" style="text-align: right; max-width: 60%;">Restauración estructural y refractarios</strong>
+              </div>
+              <div class="quote-detail-item" id="summaryExtrasRow">
+                <span>Adicionales:</span>
+                <strong id="summaryExtras" style="text-align: right; max-width: 60%;">Ninguno seleccionado</strong>
+              </div>
+              <div class="quote-detail-item">
+                <span>Plazo estimado / Entrega:</span>
+                <strong id="summaryEstTime" style="color: #ff9f43;">7 a 12 días hábiles aprox.</strong>
+              </div>
+            </div>
+
+            <!-- Direct Contact Info -->
+            <div class="contact-details-list" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
               <div class="contact-item">
                 <i class="fa-solid fa-location-dot"></i>
                 <div>
@@ -680,67 +735,14 @@
                   <span>Disponible exclusivamente dentro del sector previa coordinación</span>
                 </div>
               </div>
-
-              <div class="contact-item">
-                <i class="fa-solid fa-certificate"></i>
-                <div>
-                  <h6>Respaldo y Garantía:</h6>
-                  <span>Compromiso de reparación o reemplazo técnico en todos nuestros artículos</span>
-                </div>
-              </div>
             </div>
           </div>
 
-          <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
-            <small style="color: var(--color-slate-400);">
-              <i class="fa-solid fa-clock"></i> Horario de taller: Lunes a Sábado de 09:00 a 19:00 hrs.
+          <div style="margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <small style="color: var(--color-slate-400); display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fa-solid fa-clock" style="color: #ff9f43;"></i> Horario de taller: Lunes a Sábado de 09:00 a 19:00 hrs.
             </small>
           </div>
-        </div>
-
-        <div class="contact-form-panel">
-          <h4>Enviar Consulta Técnica</h4>
-          <form id="contactForm">
-            <div class="form-group">
-              <label class="form-label" for="formName">Nombre completo:</label>
-              <input type="text" id="formName" class="form-input" placeholder="Tu nombre" required>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div class="form-group">
-                <label class="form-label" for="formPhone">Teléfono / WhatsApp:</label>
-                <input type="tel" id="formPhone" class="form-input" placeholder="+56 9 ..." required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="formCity">Comuna o Sector:</label>
-                <input type="text" id="formCity" class="form-input" placeholder="Ej: Galvarino, Traiguén..." required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="formService">Motivo de contacto:</label>
-              <select id="formService" class="form-select">
-                <option value="Restauración de cocina a leña">Restauración de cocina propia</option>
-                <option value="Adquisición de cocina tipo mueble">Interés en cocina tipo mueble (con kit incluido)
-                </option>
-                <option value="Adquisición de cocina compacta 1 plato">Interés en cocina compacta 1 plato (con kit
-                  incluido)</option>
-                <option value="Termos en acero inoxidable">Termos de cañón en acero inoxidable</option>
-                <option value="Ductos de evacuación">Cañones galvanizados o para combustión</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="formMessage">Detalle de la consulta:</label>
-              <textarea id="formMessage" class="form-textarea" rows="4"
-                placeholder="Indícanos el modelo de tu cocina, su estado actual o el requerimiento específico..."
-                required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-              <i class="fa-brands fa-whatsapp"></i> Enviar Consulta a Marcelo Montalba
-            </button>
-          </form>
         </div>
       </div>
     </div>
@@ -773,7 +775,8 @@
             </div>
           </div>
           <p>
-            Iniciado en 1986 por Alfonso Montalba Torres y continuado hoy por Marcelo Montalba. Oficio técnico, fierro
+            Iniciado en 1986 por Alfonso Montalba Torres y continuado hoy por Marcelo Montalba Geisser. Oficio técnico,
+            fierro
             fundido firme y revestimientos refractarios para asegurar el calor duradero de la cocina tradicional.
           </p>
         </div>
@@ -785,7 +788,7 @@
             <a href="#restauraciones">Cámaras Refractarias</a>
             <a href="#restauraciones">Rectificación de Fundición</a>
             <a href="#restauraciones">Enlozado Especializado</a>
-            <a href="#cotizador">Cotizador Técnico</a>
+            <a href="#contacto">Cotizador & Contacto</a>
           </div>
         </div>
 
@@ -824,21 +827,6 @@
   <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba de la página" title="Volver arriba">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
-
-  <!-- FLOATING CONTACT ACTIONS (WHATSAPP & EMAIL) -->
-  <div class="floating-contact-group">
-    <a href="mailto:montalbalex.mamg@gmail.com?subject=Consulta%20desde%20Sitio%20Web%20-%20Taller%20Montalba"
-      class="floating-btn floating-email" aria-label="Enviar Correo Electrónico a Taller Montalba">
-      <i class="fa-solid fa-envelope"></i>
-      <span>Enviar Correo</span>
-    </a>
-    <a href="https://wa.me/56995253536?text=Hola%20Marcelo,%20quisiera%20hacer%20una%20consulta%20en%20Taller%20Montalba"
-      target="_blank" class="floating-btn floating-whatsapp" aria-label="Contactar a Marcelo Montalba por WhatsApp">
-      <div class="pulse-ring"></div>
-      <i class="fa-brands fa-whatsapp"></i>
-      <span>WhatsApp</span>
-    </a>
-  </div>
 
   <!-- PRODUCT MODAL / QUICKVIEW -->
   <div class="modal-overlay" id="productModal">
