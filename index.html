@@ -80,22 +80,23 @@
 
         <!-- Dropdown "Más" for secondary items on desktop / tablet -->
         <div class="nav-dropdown" id="navMoreDropdown">
-          <button class="nav-link nav-dropdown-btn" id="navDropdownToggle" type="button" aria-expanded="false" aria-label="Ver más secciones">
+          <button class="nav-link nav-dropdown-btn" id="navDropdownToggle" type="button" aria-expanded="false"
+            aria-label="Ver más secciones">
             Más <i class="fa-solid fa-chevron-down nav-dropdown-icon"></i>
           </button>
           <div class="nav-dropdown-menu" id="navDropdownMenu">
-            <a href="#taller" class="nav-dropdown-link">El Taller</a>
+            <a href="#taller" class="nav-dropdown-link">Oficio y Trayectoria</a>
             <a href="#faq" class="nav-dropdown-link">Preguntas Frecuentes</a>
             <a href="#ubicacion" class="nav-dropdown-link">Ubicación</a>
           </div>
         </div>
 
         <!-- Direct items displayed in mobile drawer menu -->
-        <a href="#taller" class="nav-link nav-link-mobile-only">El Taller</a>
+        <a href="#taller" class="nav-link nav-link-mobile-only">Oficio y Trayectoria</a>
         <a href="#faq" class="nav-link nav-link-mobile-only">Preguntas Frecuentes</a>
         <a href="#ubicacion" class="nav-link nav-link-mobile-only">Ubicación</a>
 
-        <a href="#contacto" class="nav-link nav-link-cta">Cotizar y Contacto</a>
+        <a href="#contacto" class="nav-link nav-link-cta">Cotiza tu Producto</a>
       </nav>
 
       <div class="nav-cta">
@@ -378,10 +379,15 @@
   <section class="section-about" id="taller">
     <div class="container">
       <div class="about-grid">
+        <div class="about-header">
+          <span class="section-tag"><i class="fa-solid fa-hammer"></i> Oficio y Trayectoria</span>
+          <h3>Casi 40 años de experiencia en Galvarino</h3>
+        </div>
+
         <div class="about-visual">
           <div class="about-main-img">
-            <img src="img/taller-artesano.jpg"
-              alt="Marcelo Montalba instalando revestimiento refractario en cocina a leña tradicional">
+            <img src="img/taller-artesano-restauracion.jpg"
+              alt="Maestro en overol aplicando cemento refractario con llana sobre ladrillos en la cámara de combustión de una cocina a leña">
           </div>
           <div class="about-experience-badge">
             <strong>1986</strong>
@@ -390,8 +396,6 @@
         </div>
 
         <div class="about-content">
-          <span class="section-tag"><i class="fa-solid fa-hammer"></i> Oficio y Trayectoria</span>
-          <h3>Casi 40 años de experiencia en Galvarino</h3>
           <p>
             En 1986, <strong>Alfonso Montalba</strong> fundó el taller con un estándar claro: trabajo bien
             ejecutado,
@@ -399,7 +403,8 @@
           </p>
           <p>
             Hoy, <strong>Marcelo Montalba</strong> continúa la labor en <strong>Chacabuco 128, Galvarino</strong>,
-            atendiendo cada proyecto de forma personal: evalúa la firmeza del fierro fundido, reemplaza planchas y
+            atendiendo cada cocina y encargo de forma personal: evalúa la firmeza del fierro fundido, reemplaza planchas
+            y
             piezas
             gastadas por fierro de buen espesor y reconstruye cámaras de combustión con ladrillos refractarios para
             asegurar un
@@ -554,10 +559,10 @@
     <div class="container">
       <div class="text-center center-box" style="margin-bottom: 2.5rem;">
         <span class="section-tag"><i class="fa-solid fa-calculator"></i> Cotizador & Consulta Directa</span>
-        <h2 class="section-title">Cotiza tu Proyecto o Consulta con Marcelo</h2>
+        <h2 class="section-title">Cotiza tu Producto o Consulta con Marcelo</h2>
         <p class="section-subtitle center-box">
-          Configura una estimación técnica para la restauración de tu cocina a leña o envíanos tu consulta sobre productos
-          nuevos, repuestos e instalación en Galvarino y sectores cercanos.
+          Revisa una estimación para la reparación de tu cocina a leña o consulta directamente por productos nuevos,
+          termos, cañones y repuestos en Galvarino y alrededores.
         </p>
       </div>
 
@@ -596,15 +601,19 @@
             </div>
 
             <!-- Dynamic Restoration Options (shown when 'restauracion' is selected) -->
-            <div id="restorationOptionsBlock" style="background: var(--color-cream-100); border: 1px solid var(--color-cream-300); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.25rem;">
-              <h6 style="font-size: 0.95rem; font-weight: 700; color: var(--color-dark-900); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.4rem;">
+            <div id="restorationOptionsBlock"
+              style="background: var(--color-cream-100); border: 1px solid var(--color-cream-300); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.25rem;">
+              <h6
+                style="font-size: 0.95rem; font-weight: 700; color: var(--color-dark-900); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.4rem;">
                 <i class="fa-solid fa-wrench" style="color: var(--color-primary);"></i> Sobre tu cocina actual
               </h6>
 
               <div class="form-group">
-                <label class="form-label" for="calcStoveType" style="font-size: 0.85rem;">¿Qué tipo de cocina tienes más o menos?</label>
+                <label class="form-label" for="calcStoveType" style="font-size: 0.85rem;">¿Qué tipo de cocina tienes más
+                  o menos?</label>
                 <select id="calcStoveType" class="form-select" style="font-size: 0.9rem; padding: 0.65rem 0.85rem;">
-                  <option value="mueble-3-4" selected>Cocina tradicional grande con horno (3 o 4 platos · Ej: Alcázar, Unque)</option>
+                  <option value="mueble-3-4" selected>Cocina tradicional grande con horno (3 o 4 platos · Ej: Alcázar,
+                    Unque)</option>
                   <option value="mueble-2">Cocina mediana (2 platos)</option>
                   <option value="compacta-1">Cocina chica o compacta (1 plato · Ej: Krisolt)</option>
                   <option value="antigua">Cocina antigua clásica de fierro fundido</option>
@@ -613,9 +622,11 @@
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="calcStoveState" style="font-size: 0.85rem;">¿Qué problema tiene o qué necesitas hacerle?</label>
+                <label class="form-label" for="calcStoveState" style="font-size: 0.85rem;">¿Qué problema tiene o qué
+                  necesitas hacerle?</label>
                 <select id="calcStoveState" class="form-select" style="font-size: 0.9rem; padding: 0.65rem 0.85rem;">
-                  <option value="lata-total" selected>Restauración completa: cambiar latas quemadas, ladrillos y dejarla impecable</option>
+                  <option value="lata-total" selected>Restauración completa: cambiar latas quemadas, ladrillos y dejarla
+                    impecable</option>
                   <option value="humo-latas">Humea o se quemaron las latas por dentro (fondo o laterales)</option>
                   <option value="ladrillos">Los ladrillos refractarios se cayeron o quebraron</option>
                   <option value="cubierta">Las planchas de arriba están gastadas, chuecas o quebradas</option>
@@ -627,16 +638,22 @@
               <div class="form-group" style="margin-bottom: 0;">
                 <label class="form-label" style="font-size: 0.85rem;">¿Te gustaría agregar algo más?:</label>
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.35rem;">
-                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.88rem; color: var(--color-dark-800);">
-                    <input type="checkbox" id="calcAddTermo" style="width: 17px; height: 17px; accent-color: var(--color-primary);">
+                  <label
+                    style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.88rem; color: var(--color-dark-800);">
+                    <input type="checkbox" id="calcAddTermo"
+                      style="width: 17px; height: 17px; accent-color: var(--color-primary);">
                     Poner Termo de Cañón (para tener agua caliente con la leña)
                   </label>
-                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.88rem; color: var(--color-dark-800);">
-                    <input type="checkbox" id="calcAddCanones" style="width: 17px; height: 17px; accent-color: var(--color-primary);">
+                  <label
+                    style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.88rem; color: var(--color-dark-800);">
+                    <input type="checkbox" id="calcAddCanones"
+                      style="width: 17px; height: 17px; accent-color: var(--color-primary);">
                     Cañones nuevos o kit de evacuación
                   </label>
-                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.88rem; color: var(--color-dark-800);">
-                    <input type="checkbox" id="calcAddTraslado" style="width: 17px; height: 17px; accent-color: var(--color-primary);">
+                  <label
+                    style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.88rem; color: var(--color-dark-800);">
+                    <input type="checkbox" id="calcAddTraslado"
+                      style="width: 17px; height: 17px; accent-color: var(--color-primary);">
                     Consultar por traslado (solo dentro de la zona de Galvarino)
                   </label>
                 </div>
@@ -644,23 +661,29 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="formMessage" id="formMessageLabel">Cuéntanos más detalles (opcional):</label>
+              <label class="form-label" for="formMessage" id="formMessageLabel">Cuéntanos más detalles
+                (opcional):</label>
               <textarea id="formMessage" class="form-textarea" rows="3"
                 placeholder="Ej: La cocina humea mucho al encender o es una cocina antigua heredada..."></textarea>
             </div>
 
-            <div id="photoNoticeBox" style="background: rgba(37, 211, 102, 0.1); border: 1px solid rgba(37, 211, 102, 0.3); border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.65rem;">
-              <i class="fa-solid fa-camera" id="noticeIcon" style="color: #25d366; font-size: 1.1rem; flex-shrink: 0;"></i>
+            <div id="photoNoticeBox"
+              style="background: rgba(37, 211, 102, 0.1); border: 1px solid rgba(37, 211, 102, 0.3); border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.65rem;">
+              <i class="fa-solid fa-camera" id="noticeIcon"
+                style="color: #25d366; font-size: 1.1rem; flex-shrink: 0;"></i>
               <span id="noticeText" style="font-size: 0.82rem; color: var(--color-dark-800); line-height: 1.35;">
-                <strong>¿Tienes fotos de tu cocina?</strong> Al presionar el botón se abrirá WhatsApp para que puedas adjuntárselas directamente a Marcelo y recibir una orientación precisa.
+                <strong>¿Tienes fotos de tu cocina?</strong> Al presionar el botón se abrirá WhatsApp para que puedas
+                adjuntárselas directamente a Marcelo y recibir una orientación precisa.
               </span>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-              <button type="submit" id="formSubmitBtn" class="btn btn-whatsapp btn-lg" style="width: 100%; justify-content: center;">
+              <button type="submit" id="formSubmitBtn" class="btn btn-whatsapp btn-lg"
+                style="width: 100%; justify-content: center;">
                 <i class="fa-brands fa-whatsapp"></i> <span id="submitBtnText">Enviar Consulta / Fotos a Marcelo</span>
               </button>
-              <button type="button" id="formEmailBtn" class="btn btn-email btn-lg" style="width: 100%; justify-content: center; font-size: 1rem;">
+              <button type="button" id="formEmailBtn" class="btn btn-email btn-lg"
+                style="width: 100%; justify-content: center; font-size: 1rem;">
                 <i class="fa-solid fa-envelope"></i> Enviar Solicitud por Correo Electrónico
               </button>
             </div>
@@ -671,26 +694,32 @@
         <div class="contact-info-panel" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <!-- Live Summary Card -->
-            <div class="quote-summary-header" style="border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 1rem; margin-bottom: 1.25rem;">
-              <span class="section-tag dark" style="font-size: 0.72rem; padding: 0.2rem 0.6rem; margin-bottom: 0.5rem; display: inline-block;">
+            <div class="quote-summary-header"
+              style="border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 1rem; margin-bottom: 1.25rem;">
+              <span class="section-tag dark"
+                style="font-size: 0.72rem; padding: 0.2rem 0.6rem; margin-bottom: 0.5rem; display: inline-block;">
                 <i class="fa-solid fa-list-check"></i> Resumen Técnico
               </span>
               <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.25rem;">Detalle de la Solicitud</h4>
-              <p style="font-size: 0.82rem; color: var(--color-slate-400); margin: 0;">Diagnóstico y atención directa de Marcelo Montalba</p>
+              <p style="font-size: 0.82rem; color: var(--color-slate-400); margin: 0;">Diagnóstico y atención directa de
+                Marcelo Montalba</p>
             </div>
 
             <div class="quote-details-list" style="margin-bottom: 2rem;">
               <div class="quote-detail-item">
                 <span>Requerimiento:</span>
-                <strong id="summaryService" style="text-align: right; max-width: 60%;">Restauración de Cocina a Leña</strong>
+                <strong id="summaryService" style="text-align: right; max-width: 60%;">Restauración de Cocina a
+                  Leña</strong>
               </div>
               <div class="quote-detail-item" id="summaryStoveRow">
                 <span>Modelo / Formato:</span>
-                <strong id="summaryStove" style="text-align: right; max-width: 60%;">Cocina Tipo Mueble (3 o 4 platos)</strong>
+                <strong id="summaryStove" style="text-align: right; max-width: 60%;">Cocina Tipo Mueble (3 o 4
+                  platos)</strong>
               </div>
               <div class="quote-detail-item" id="summaryScopeRow">
                 <span>Intervención técnica:</span>
-                <strong id="summaryScope" style="text-align: right; max-width: 60%;">Restauración estructural y refractarios</strong>
+                <strong id="summaryScope" style="text-align: right; max-width: 60%;">Restauración estructural y
+                  refractarios</strong>
               </div>
               <div class="quote-detail-item" id="summaryExtrasRow">
                 <span>Adicionales:</span>
@@ -740,7 +769,8 @@
 
           <div style="margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.1);">
             <small style="color: var(--color-slate-400); display: flex; align-items: center; gap: 0.5rem;">
-              <i class="fa-solid fa-clock" style="color: #ff9f43;"></i> Horario de taller: Lunes a Sábado de 09:00 a 19:00 hrs.
+              <i class="fa-solid fa-clock" style="color: #ff9f43;"></i> Horario de taller: Lunes a Sábado de 09:00 a
+              19:00 hrs.
             </small>
           </div>
         </div>
@@ -788,7 +818,7 @@
             <a href="#restauraciones">Cámaras Refractarias</a>
             <a href="#restauraciones">Rectificación de Fundición</a>
             <a href="#restauraciones">Enlozado Especializado</a>
-            <a href="#contacto">Cotizador & Contacto</a>
+            <a href="#contacto">Cotiza tu Producto</a>
           </div>
         </div>
 
