@@ -14,9 +14,9 @@ Landing page auténtica, honesta y de alto impacto visual para **Taller Montalba
    - Reconstrucción de cámaras de combustión con ladrillos y mortero refractario denso.
    - Rectificación de cubiertas, enlozados industriales a fuego y calibración de tiro hermético.
 
-2. **Cañones y Artículos de Instalación**:
-   - Venta de cañones galvanizados de alto espesor (4" y 5") para cocinas a leña tradicionales.
-   - Cañones para estufas a combustión lenta (5" y 6").
+2. **Cañones y Artículos de Instalación (Estándar y a Medida)**:
+   - Venta de cañones galvanizados de alto espesor (4", 5" y 6") para cocinas a leña tradicionales y estufas.
+   - **Fabricación de cañones y mantas pasamuros a medida** según las pendientes y requerimientos especiales de cada techumbre.
    - Mantas pasamuros de zinc galvanizado contra goteras y filtraciones.
    - Sombreretes antiviento cónicos y tipo H para optimizar el tiraje.
    - Codos de 45° y 90°, palas atizadoras forjadas y refractarios.

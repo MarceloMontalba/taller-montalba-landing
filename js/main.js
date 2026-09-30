@@ -80,21 +80,21 @@ function initComparisonSlider() {
 const PRODUCTS = [
   {
     id: 'canones-galvanizados-tradicional',
-    name: 'Cañones Galvanizados de Alto Espesor (4" y 5")',
+    name: 'Cañones Galvanizados Estándar y a Medida (4", 5" y Especiales)',
     category: 'canones',
     categoryName: 'Cañones',
-    badge: 'Galvanizado Grueso',
+    badge: 'Estándar y a Medida',
     badgeType: 'sale',
     image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Cañones de zinc y fierro galvanizado de alto calibre diseñados especialmente para cocinas a leña tradicionales. Su espesor superior resiste el fuego continuo y la corrosión, garantizando un tiraje eficiente y seguro hacia el exterior sin deformaciones.',
+    description: 'Cañones de zinc y fierro galvanizado de alto calibre diseñados especialmente para cocinas a leña tradicionales. Disponibles en diámetros estándar de 4", 5" y 6", y también fabricamos tramos y cañones a medida según la altura, desvíos o requerimientos particulares de tu instalación.',
     specs: {
-      'Diámetros': '4" y 5" pulgadas estándar',
-      'Largo': 'Tramos de 1 metro con encaje machihembrado',
+      'Diámetros': '4", 5", 6" y fabricación a medida',
+      'Largo': 'Tramos de 1 metro y medidas especiales a pedido',
       'Material': 'Zinc / Fierro galvanizado reforzado',
-      'Uso': 'Cocinas a leña tipo mueble y compactas',
+      'Uso': 'Cocinas a leña tipo mueble, compactas y estufas',
       'Garantía': 'Respaldo directo de Taller Montalba'
     },
-    price: 'Venta por Unidad o Metro'
+    price: 'Venta por Unidad o a Medida'
   },
   {
     id: 'canones-combustion-lenta',
@@ -107,7 +107,7 @@ const PRODUCTS = [
     description: 'Cañones reforzados para evacuación en estufas de combustión lenta. Diseñados para resistir choques térmicos elevados y optimizar el tiro de humos (aclaramos que comercializamos cañones de alta calidad, pero nuestro servicio de restauración se enfoca en cocinas tradicionales).',
     specs: {
       'Diámetros': '5" y 6" pulgadas para combustión',
-      'Largo': 'Tramos de 1 metro',
+      'Largo': 'Tramos de 1 metro y cortes especiales',
       'Resistencia': 'Alta tolerancia a calor y creosota',
       'Disponibilidad': 'Stock permanente en taller'
     },
@@ -115,20 +115,20 @@ const PRODUCTS = [
   },
   {
     id: 'manta-pasamuros-galvanizada',
-    name: 'Manta Pasamuros Galvanizada Impermeable para Techo',
+    name: 'Manta Pasamuros Galvanizada (Estándar y a Medida)',
     category: 'techumbre',
     categoryName: 'Mantas y Sombreros',
-    badge: 'Anti-Goteras',
+    badge: 'Anti-Goteras a Medida',
     badgeType: 'inox',
     image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Manta pasamuros troquelada en plancha de zinc/galvanizado con cuello y gollete ajustable. Esencial para sellar el paso del cañón por techumbres de zinc, teja o fibrocemento, evitando filtraciones de agua y goteras durante el invierno sureño.',
+    description: 'Manta pasamuros troquelada en plancha de zinc/galvanizado con cuello y gollete ajustable. Disponibles en medidas estándar y también las confeccionamos a medida según la pendiente, curvatura o material de tu techo, asegurando un sellado 100% hermético contra filtraciones de agua.',
     specs: {
-      'Material': 'Plancha de zinc galvanizado estampado',
-      'Salida': 'Gollete compatible con 4", 5" y 6"',
-      'Base': 'Superficie amplia para traslape seguro',
-      'Instalación': 'Apta para techos con diversas pendientes'
+      'Material': 'Plancha de zinc galvanizado reforzado',
+      'Salida': 'Compatible con 4", 5", 6" y a medida',
+      'Confección': 'Estándar y adaptada a la pendiente de tu techo',
+      'Instalación': 'Apta para zinc, teja, fibrocemento o pizarreño'
     },
-    price: 'Disponible en Taller'
+    price: 'Disponible en Taller y a Pedido'
   },
   {
     id: 'sombrero-antiviento-galvanizado',
@@ -477,11 +477,11 @@ function initUnifiedCotizadorContact() {
       if (noticeText) noticeText.innerHTML = '<strong>¿Tienes fotos de tu cocina?</strong> Al presionar el botón se abrirá WhatsApp para que puedas adjuntárselas directamente a Marcelo y recibir una orientación precisa.';
       if (submitBtnText) submitBtnText.textContent = 'Enviar Consulta / Fotos a Marcelo';
     } else if (selectedServiceVal === 'termos-canones') {
-      if (formMessage) formMessage.placeholder = 'Ej: Necesito 4 cañones de 5 pulgadas, una manta de zinc y un sombrerete antiviento...';
+      if (formMessage) formMessage.placeholder = 'Ej: Necesito 4 cañones de 5", o una manta y tramos a medida para mi techo...';
       if (formMessageLabel) formMessageLabel.textContent = 'Detalle de los cañones o accesorios que necesitas (opcional):';
       if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
       if (noticeIcon) noticeIcon.className = 'fa-solid fa-toolbox';
-      if (noticeText) noticeText.innerHTML = '<strong>Cañones y Accesorios:</strong> Disponibles en diámetros de 4", 5" y 6" con entrega o retiro en taller en Galvarino.';
+      if (noticeText) noticeText.innerHTML = '<strong>Cañones y Mantas (Estándar y a Medida):</strong> Stock en 4", 5" y 6", y confección personalizada según el ángulo o pasada de tu techo.';
       if (submitBtnText) submitBtnText.textContent = 'Consultar Cañones / Accesorios por WhatsApp';
     } else if (selectedServiceVal === 'termo-inox') {
       if (formMessage) formMessage.placeholder = 'Ej: Quiero saber capacidad y medidas para instalar un termo de cañón en mi cocina a leña...';
