@@ -2341,6 +2341,24 @@ h6 {
   flex-shrink: 0;
 }
 
+.presencial-stoves-notice {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.presencial-stoves-notice:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  .presencial-stoves-notice {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.25rem 1rem;
+  }
+}
+
 .heavy-solid-badge {
   background: #f1f5f9;
   border: 1px solid #cbd5e1;

@@ -1,37 +1,33 @@
 # Taller Montalba — Landing Page Oficial
 ### *Chacabuco 128, Galvarino, Chile*
-### *Restauración y Venta de Cocinas a Leña Tradicionales · Fundado en 1986 por Alfonso Montalba Torres · Atendido por Marcelo Montalba*
+### *Especialistas en Restauración de Cocinas a Leña Tradicionales · Cañones y Accesorios · Fundado en 1986 por Alfonso Montalba Torres · Atendido por Marcelo Montalba*
 
 Landing page auténtica, honesta y de alto impacto visual para **Taller Montalba**, taller artesanal ubicado en **Chacabuco 128, Galvarino (Región de La Araucanía)**.
 
 ---
 
-## ✨ Características y Correcciones Aplicadas
+## ✨ Características y Enfoque del Negocio
 
-1. **Logo Auténtico y Propio**:
-   - Reemplazado el ícono genérico por un emblema vectorial (SVG) que ilustra una **cocina a leña tradicional sureña**: cubierta de fierro fundido, cañón, puerta de fuego, cenicero y horno con sus patas clásicas.
+1. **Enfoque 100% en Restauración y Recuperación**:
+   - Diagnóstico estructural individual y recuperación de piezas de fierro fundido.
+   - Reemplazo de latas quemadas por latas nuevas de buen espesor y refuerzo del chasis.
+   - Reconstrucción de cámaras de combustión con ladrillos y mortero refractario denso.
+   - Rectificación de cubiertas, enlozados industriales a fuego y calibración de tiro hermético.
 
-2. **Historia Familiar Genuina**:
+2. **Cañones y Artículos de Instalación**:
+   - Venta de cañones galvanizados de alto espesor (4" y 5") para cocinas a leña tradicionales.
+   - Cañones para estufas a combustión lenta (5" y 6").
+   - Mantas pasamuros de zinc galvanizado contra goteras y filtraciones.
+   - Sombreretes antiviento cónicos y tipo H para optimizar el tiraje.
+   - Codos de 45° y 90°, palas atizadoras forjadas y refractarios.
+   - Termos de cañón y acumuladores de pie en acero inoxidable sanitario (AISI 304).
+
+3. **Historia Familiar Genuina**:
    - Iniciado en **1986 por Alfonso Montalba Torres**.
-   - Atendido y trabajado de forma personal e individual únicamente por **Marcelo Montalba**.
+   - Atendido y trabajado de forma personal e individual por **Marcelo Montalba**.
 
-3. **El Oficio Real de la Restauración**:
-   - **Evaluación honesta**: Marcelo examina la cocina y establece qué piezas se pueden salvar (patas, parrillas, fierro firme) y qué se debe renovar.
-   - **Cambio de lata gruesa y encementado**: A diferencia de las cocinas nuevas de fábrica que son delgaditas y livianas, una cocina restaurada por Marcelo **"pesa un mundo"** porque lleva lata maciza, mortero refractario denso y ladrillos refractarios nuevos hechos para durar décadas.
-   - **Enlozados**: Se mandan a fábrica especializada de enlozado a fuego para garantizar acabado vítreo industrial.
-   - **Precios honestos**: Trabajo de calidad superior a precio accesible.
-
-4. **Nomenclatura Concreta del Mercado**:
-   - Se reemplazó el término "económicas" por su denominación precisa: **"Cocinas a Leña Compactas (1 y 2 Platos)"** (frente a las Cocinas Tipo Mueble de 3 a 4 platos).
-
-5. **Claridad en Productos y Servicios**:
-   - **Kit completo incluido en la venta**: Cada cocina vendida incluye su **kit de cañones, pala, sombrero y manta**.
-   - **Garantía en artículos de proveedores**: Si compras un termo de cañón inox o cañones y algo falla, Marcelo lo restaura o lo reemplaza.
-   - **Cañones**: Vende cañones normales galvanizados y cañones para combustión (aclarando que **no repara estufas a combustión**).
-   - **Instalaciones y Fletes**: **No realiza instalaciones en techos**, pero **según cercanía Marcelo mismo lleva la cocina hasta la casa**.
-
-6. **Ubicación & Google Maps**:
-   - Se eliminó la sección de opiniones falsas y se integró un **mapa interactivo de Google Maps** con la ubicación exacta en **Chacabuco 128, Galvarino, Chile**.
+4. **Ubicación & Google Maps**:
+   - Mapa interactivo integrado con la ubicación en **Chacabuco 128, Galvarino, Chile**.
 
 ---
 

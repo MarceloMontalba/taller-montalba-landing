@@ -75,155 +75,180 @@ function initComparisonSlider() {
 }
 
 /* ==========================================================================
-   2. PRODUCT CATALOG DATA & FILTERS
+   2. PRODUCT CATALOG DATA & FILTERS (DUCTS, ACCESSORIES & SPARES)
    ========================================================================== */
 const PRODUCTS = [
   {
-    id: 'unque-clasica',
-    name: 'Cocina a Leña Nueva Unque Clásica (Tipo Mueble)',
-    category: 'mueble',
-    categoryName: 'Cocina Nueva Tipo Mueble',
-    badge: 'Nueva · Kit Completo',
+    id: 'canones-galvanizados-tradicional',
+    name: 'Cañones Galvanizados de Alto Espesor (4" y 5")',
+    category: 'canones',
+    categoryName: 'Cañones',
+    badge: 'Galvanizado Grueso',
     badgeType: 'sale',
-    image: 'img/cocina-mueble-unque-clasica.webp',
-    description: 'Cocina a leña 100% nueva de fábrica marca Unque en acabado ocre clásico. Estructura de alta inercia térmica con cubierta y piezas en fierro fundido y ladrillos refractarios de alta densidad. Rendimiento calórico superior y horneado uniforme. Incluye kit completo de cañones, sombrerete, manta pasamuros y pala atizadora.',
+    image: 'img/kit-canones-manta-sombrero.webp',
+    description: 'Cañones de zinc y fierro galvanizado de alto calibre diseñados especialmente para cocinas a leña tradicionales. Su espesor superior resiste el fuego continuo y la corrosión, garantizando un tiraje eficiente y seguro hacia el exterior sin deformaciones.',
     specs: {
-      'Estado': '100% Nueva de Fábrica',
-      'Cubierta': 'Fierro fundido rectificado con 3 platos desmontables',
-      'Horno': 'Interior enlozado con registro térmico',
-      'Cámara Térmica': 'Ladrillos refractarios de alta densidad sellados',
-      'Equipamiento': 'Incluye 4 cañones, manta, sombrerete y pala',
-      'Garantía': 'Respaldo técnico directo de Marcelo Montalba'
+      'Diámetros': '4" y 5" pulgadas estándar',
+      'Largo': 'Tramos de 1 metro con encaje machihembrado',
+      'Material': 'Zinc / Fierro galvanizado reforzado',
+      'Uso': 'Cocinas a leña tipo mueble y compactas',
+      'Garantía': 'Respaldo directo de Taller Montalba'
     },
-    price: 'Consultar Disponibilidad en Taller'
+    price: 'Venta por Unidad o Metro'
   },
   {
-    id: 'alcazar-blanca',
-    name: 'Cocina a Leña Nueva Alcázar Blanca (Tipo Mueble)',
-    category: 'mueble',
-    categoryName: 'Cocina Nueva Tipo Mueble',
-    badge: 'Nueva · Kit Completo',
+    id: 'canones-combustion-lenta',
+    name: 'Cañones para Estufas a Combustión Lenta (5" y 6")',
+    category: 'canones',
+    categoryName: 'Cañones',
+    badge: 'Alta Temperatura',
     badgeType: 'sale',
-    image: 'img/cocina-mueble-alcazar-blanca.webp',
-    description: 'Imponente cocina a leña nueva de fábrica marca Alcázar en esmaltado blanco brillante con herrajes cromados y pasamanos perimetral. Excelente acumulación de calor para calefaccionar amplios espacios y preparar pan artesanal. Se entrega nueva con su kit integral de evacuación y accesorios.',
+    image: 'img/kit-canones-manta-sombrero.webp',
+    description: 'Cañones reforzados para evacuación en estufas de combustión lenta. Diseñados para resistir choques térmicos elevados y optimizar el tiro de humos (aclaramos que comercializamos cañones de alta calidad, pero nuestro servicio de restauración se enfoca en cocinas tradicionales).',
     specs: {
-      'Estado': '100% Nueva de Fábrica',
-      'Cubierta': '4 Platos en fierro fundido con aros reductores',
-      'Acabado': 'Esmaltado vitrificado de alta resistencia',
-      'Horno': 'Amplia capacidad con parrilla de fundición',
-      'Equipamiento': 'Incluye 4 cañones, manta, sombrerete y pala',
-      'Garantía': 'Garantía directa de taller'
-    },
-    price: 'Consultar Disponibilidad en Taller'
-  },
-  {
-    id: 'unque-caramelo',
-    name: 'Cocina a Leña Nueva Unque Caramelo (Tipo Mueble)',
-    category: 'mueble',
-    categoryName: 'Cocina Nueva Tipo Mueble',
-    badge: 'Nueva · Kit Completo',
-    badgeType: 'sale',
-    image: 'img/cocina-mueble-enlozada-caramelo.jpg',
-    description: 'Cocina a leña 100% nueva en clásica terminación caramelo vitrificado. Cenicero independiente, regulador de tiro de precisión y chasis firme con cubierta de fierro fundido. Lista para instalar con kit completo de cañones y accesorios.',
-    specs: {
-      'Estado': '100% Nueva de Fábrica',
-      'Cubierta': '3 Platos térmicos de fundición pesada',
-      'Estructura': 'Chasis firme con piezas de fierro fundido',
-      'Refractarios': 'Cámara sellada con mortero refractario',
-      'Equipamiento': 'Incluye 4 cañones, manta, sombrerete y pala'
+      'Diámetros': '5" y 6" pulgadas para combustión',
+      'Largo': 'Tramos de 1 metro',
+      'Resistencia': 'Alta tolerancia a calor y creosota',
+      'Disponibilidad': 'Stock permanente en taller'
     },
     price: 'Consultar en Taller'
   },
   {
-    id: 'krisolt-blanca',
-    name: 'Cocina a Leña Nueva Krisolt 1 Plato (Blanca)',
-    category: 'compacta',
-    categoryName: 'Cocina Nueva Compacta',
-    badge: 'Nueva · Kit Completo',
-    badgeType: 'sale',
-    image: 'img/cocina-economica-krisolt-blanca.webp',
-    description: 'Cocina a leña de formato compacto 100% nueva con 1 plato grande y aros reductores de expansión. Diseñada para un rápido encendido y óptimo rendimiento en cabañas, quinchos o espacios acogedores con bajo consumo de leña. Se entrega equipada con su kit completo de cañones, sombrerete, manta y pala.',
+    id: 'manta-pasamuros-galvanizada',
+    name: 'Manta Pasamuros Galvanizada Impermeable para Techo',
+    category: 'techumbre',
+    categoryName: 'Mantas y Sombreros',
+    badge: 'Anti-Goteras',
+    badgeType: 'inox',
+    image: 'img/kit-canones-manta-sombrero.webp',
+    description: 'Manta pasamuros troquelada en plancha de zinc/galvanizado con cuello y gollete ajustable. Esencial para sellar el paso del cañón por techumbres de zinc, teja o fibrocemento, evitando filtraciones de agua y goteras durante el invierno sureño.',
     specs: {
-      'Estado': '100% Nueva de Fábrica',
-      'Plato': '1 Plato de fierro fundido con aros concéntricos',
-      'Dimensiones': '55 cm ancho x 35 cm fondo estándar',
-      'Cámara': 'Refractarios interiores de alta retención térmica',
-      'Equipamiento': 'Incluye cañones, sombrerete, manta y pala atizadora',
-      'Salida Cañón': '4 Pulgadas'
+      'Material': 'Plancha de zinc galvanizado estampado',
+      'Salida': 'Gollete compatible con 4", 5" y 6"',
+      'Base': 'Superficie amplia para traslape seguro',
+      'Instalación': 'Apta para techos con diversas pendientes'
     },
     price: 'Disponible en Taller'
   },
   {
-    id: 'krisolt-cafe',
-    name: 'Cocina a Leña Nueva Krisolt 1 Plato (Café Ocre)',
-    category: 'compacta',
-    categoryName: 'Cocina Nueva Compacta',
-    badge: 'Nueva · Kit Completo',
+    id: 'sombrero-antiviento-galvanizado',
+    name: 'Sombrerete Antiviento Cónico y Tipo H para Remate',
+    category: 'techumbre',
+    categoryName: 'Mantas y Sombreros',
+    badge: 'Tiraje Seguro',
     badgeType: 'sale',
-    image: 'img/cocina-economica-krisolt-cafe.webp',
-    description: 'Versión ocre tradicional 100% nueva de la cocina compacta Krisolt. Cuenta con pasamanos perimetral en acero inoxidable, gaveta cenicero y puerta superior para recarga rápida. Incluye kit completo de instalación.',
+    image: 'img/kit-canones-manta-sombrero.webp',
+    description: 'Sombrero de terminación superior para cañón de cocina o estufa. Su diseño aerodinámico protege contra la entrada de agua de lluvia torrencial, previene el revoque o retroceso de humo por ráfagas de viento y bloquea el ingreso de ramas o aves.',
     specs: {
-      'Estado': '100% Nueva de Fábrica',
-      'Plato': '1 Plato de fierro fundido macizo',
-      'Medidas': '55 x 35 cm estándar',
-      'Estructura': 'Cuerpo esmaltado con plato y piezas de fierro fundido',
-      'Equipamiento': 'Incluye cañones, sombrerete, manta y pala',
-      'Salida Cañón': '4 Pulgadas'
+      'Modelos': 'Cónico protector y Antiviento Tipo H',
+      'Diámetros': '4", 5" y 6" pulgadas',
+      'Material': 'Galvanizado de alto espesor',
+      'Función': 'Impide retorno de humo y entrada de agua'
     },
     price: 'Disponible en Taller'
+  },
+  {
+    id: 'codos-galvanizados-45-90',
+    name: 'Codos y Desvíos Galvanizados (45° y 90°)',
+    category: 'repuestos',
+    categoryName: 'Herrajes y Codos',
+    badge: 'Ajuste Hermético',
+    badgeType: 'sale',
+    image: 'img/kit-canones-manta-sombrero.webp',
+    description: 'Codos estampados y articulados de 45° y 90° en fierro galvanizado. Permiten realizar desvíos y esquivar vigas, tijerales o alerones de techumbre manteniendo un flujo de tiro libre de estrangulamientos y sin pérdidas de hermeticidad.',
+    specs: {
+      'Ángulos': '45 Grados y 90 Grados',
+      'Diámetros': '4" y 5" pulgadas',
+      'Empalme': 'Machihembrado de encaje rápido y seguro',
+      'Uso': 'Desvíos en muros y vigas de entretecho'
+    },
+    price: 'Venta por Unidad'
+  },
+  {
+    id: 'kit-instalacion-completo',
+    name: 'Kit Completo de Cañones y Accesorios para Cocina',
+    category: 'canones',
+    categoryName: 'Kits de Cañones',
+    badge: 'Pack Completo',
+    badgeType: 'sale',
+    image: 'img/kit-canones-manta-sombrero.webp',
+    description: 'Conjunto completo de tiro para renovación de cañones o instalación: incluye 4 cañones galvanizados de 1 metro, 1 manta pasamuros impermeable, 1 sombrerete antiviento de alta eficiencia y 1 pala atizadora forjada.',
+    specs: {
+      'Contenido': '4 cañones (1m c/u) + 1 manta + 1 sombrero + 1 pala',
+      'Diámetros': 'Disponible en 4" y 5" pulgadas',
+      'Aplicación': 'Cocinas a leña de 1, 2, 3 y 4 platos',
+      'Garantía': 'Materiales nuevos con respaldo de taller'
+    },
+    price: 'Pack Conveniente en Taller'
   },
   {
     id: 'termo-canon-inox',
-    name: 'Termo de Cañón Nuevo en Acero Inoxidable Sanitario',
-    category: 'accesorios',
-    categoryName: 'Termos y Ductos Nuevos',
-    badge: 'Nuevo · Garantía de Taller',
+    name: 'Termo de Cañón en Acero Inoxidable Sanitario (Agua Caliente)',
+    category: 'termos',
+    categoryName: 'Termos Inoxidables',
+    badge: 'Inox Sanitario 304',
     badgeType: 'inox',
     image: 'img/cocina-blanca-termo-inoxidable.jpg',
-    description: 'Dispositivo termosifón nuevo en acero inoxidable calidad 304 que aprovecha la energía térmica del tiro de la cocina para generar agua caliente sanitaria continua a costo cero. Respaldado con la garantía de Taller Montalba: ante cualquier desperfecto técnico, Marcelo Montalba responde con reparación o reemplazo inmediato.',
+    description: 'Termo envolvente de cañón fabricado en acero inoxidable sanitario AISI 304. Aprovecha la energía calórica del cañón de la cocina para calentar agua continua a costo cero. Respaldado con la garantía de Taller Montalba ante cualquier necesidad de ajuste o mantención.',
     specs: {
-      'Estado': '100% Nuevo de Fábrica',
+      'Material': 'Acero Inoxidable Sanitario AISI 304',
       'Capacidad': '40 a 60 Litros continuos',
-      'Material': 'Acero Inoxidable Sanitario Grado Alimenticio',
-      'Control': 'Reloj termómetro análogo integrado',
-      'Garantía': 'Respaldo directo de Taller Montalba'
+      'Accesorios': 'Reloj termómetro análogo integrado',
+      'Funcionamiento': 'Termosifón automático con el calor de la leña',
+      'Garantía': 'Respaldo técnico directo de Marcelo Montalba'
     },
     price: 'Venta Directa en Taller'
   },
   {
     id: 'termo-vertical-stock',
-    name: 'Estanque Termo Acumulador Vertical Nuevo (De Pie)',
-    category: 'accesorios',
-    categoryName: 'Termos y Ductos Nuevos',
-    badge: 'Nuevo · Garantía de Taller',
+    name: 'Estanque Termo Acumulador Vertical de Pie (Acero Inox)',
+    category: 'termos',
+    categoryName: 'Termos Inoxidables',
+    badge: 'Gran Capacidad',
     badgeType: 'inox',
     image: 'img/taller-cocinas-termos-stock.webp',
-    description: 'Estanque acumulador nuevo en acero inoxidable para circuitos de agua caliente por termosifón con serpentín interior en cocinas tradicionales. Alta capacidad de reserva para viviendas familiares y cabañas.',
+    description: 'Estanque acumulador de pie en acero inoxidable reforzado para circuitos de agua caliente por termosifón con serpentín interior en cocinas tradicionales. Alta capacidad de reserva térmica para familias y viviendas de campo.',
     specs: {
-      'Estado': '100% Nuevo de Fábrica',
       'Capacidad': '80 / 120 Litros',
       'Estructura': 'Acero inoxidable reforzado sobre base de apoyo',
-      'Garantía': 'Respaldo técnico de Marcelo Montalba'
+      'Compatibilidad': 'Circuitos con serpentín en cocina a leña',
+      'Garantía': 'Respaldo técnico de Taller Montalba'
     },
     price: 'A Pedido / Stock en Taller'
   },
   {
-    id: 'canones-galvanizados-combustion',
-    name: 'Ductos de Evacuación Nuevos: Cañones Galvanizados y para Combustión',
-    category: 'accesorios',
-    categoryName: 'Ductos Nuevos',
-    badge: 'Nuevos · Venta por Unidad o Kit',
+    id: 'ladrillos-mortero-refractario',
+    name: 'Ladrillos y Cemento / Mortero Refractario de Alta Densidad',
+    category: 'repuestos',
+    categoryName: 'Herrajes y Refractarios',
+    badge: 'Hasta 1300°C',
+    badgeType: 'sale',
+    image: 'img/taller-artesano-restauracion.jpg',
+    description: 'Ladrillos refractarios de alta alúmina y mortero térmico para reconstrucción de cajas de fuego y cámaras de combustión. Maximizan la retención de calor hacia el horno y reducen drásticamente el consumo de leña.',
+    specs: {
+      'Resistencia': 'Térmica hasta 1300°C',
+      'Densidad': 'Alta inercia para acumulación de calor',
+      'Uso': 'Reemplazo de ladrillos quebrados en cocinas tradicionales',
+      'Presentación': 'Unidades y sacos de fraguado térmico'
+    },
+    price: 'Disponible en Taller'
+  },
+  {
+    id: 'pala-atizadora-herrajes',
+    name: 'Pala Atizadora Forjada y Herrajes de Fierro',
+    category: 'repuestos',
+    categoryName: 'Herrajes y Codos',
+    badge: 'Fierro Macizo',
     badgeType: 'sale',
     image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Suministramos cañones galvanizados de alto espesor nuevos en 4" y 5" para cocinas tradicionales, así como ductos nuevos especializados para estufas a combustión lenta (aclaramos que comercializamos ductos de alta calidad, pero nos dedicamos exclusivamente a la reparación de cocinas tradicionales). Disponibles también mantas pasamuros impermeables, sombreretes y codos.',
+    description: 'Palas atizadoras, tiradores y ganchos de manipulación de brasa forjados en fierro macizo de alto espesor con terminación anticorrosiva y empuñadura atérmica.',
     specs: {
-      'Estado': 'Materiales Nuevos de Fábrica',
-      'Cocinas a Leña': 'Cañones de 4" y 5" pulgadas galvanizados',
-      'Estufas Combustión': 'Ductos para evacuación de estufas a combustión',
-      'Complementos': 'Mantas pasamuros, sombreretes antiviento, codos y palas',
-      'Nota': 'No realizamos labores de instalación en techumbres'
+      'Material': 'Fierro forjado macizo',
+      'Largo': '50 a 65 cm con empuñadura segura',
+      'Uso': 'Retiro de cenizas y acomodo de leña en cámara',
+      'Durabilidad': 'Diseñado para uso rudo y continuo'
     },
-    price: 'Venta por Pieza o Kit'
+    price: 'Disponible en Taller'
   }
 ];
 
@@ -248,12 +273,12 @@ function initCatalogFilters() {
     if (filtered.length === 0) {
       productsContainer.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;">
-          <i class="fa-solid fa-fire-burner" style="font-size: 3rem; color: var(--color-slate-400); margin-bottom: 1rem;"></i>
-          <h4 style="font-size: 1.3rem; color: var(--color-dark-900); margin-bottom: 0.5rem;">No se encontraron artículos</h4>
+          <i class="fa-solid fa-toolbox" style="font-size: 3rem; color: var(--color-slate-400); margin-bottom: 1rem;"></i>
+          <h4 style="font-size: 1.3rem; color: var(--color-dark-900); margin-bottom: 0.5rem;">No se encontraron artículos con esa búsqueda</h4>
           <p style="color: var(--color-slate-500); max-width: 450px; margin: 0 auto 1.5rem;">
-            ¿Buscas un repuesto o modelo específico? Consulta directamente a Marcelo Montalba por WhatsApp.
+            ¿Buscas una medida o repuesto específico? Consulta directamente a Marcelo Montalba por WhatsApp.
           </p>
-          <a href="https://wa.me/56995253536?text=Hola%20Marcelo,%20estoy%20buscando%20un%20producto%20o%20repuesto%20espec%C3%ADfico" target="_blank" class="btn btn-whatsapp">
+          <a href="https://wa.me/56995253536?text=Hola%20Marcelo,%20estoy%20buscando%20un%20art%C3%ADculo%20o%20repuesto%20espec%C3%ADfico" target="_blank" class="btn btn-whatsapp">
             <i class="fa-brands fa-whatsapp"></i> Consultar a Marcelo
           </a>
         </div>
@@ -276,13 +301,6 @@ function initCatalogFilters() {
         `;
       }
 
-      const packBanner = (p.category === 'mueble' || p.category === 'compacta') ? `
-        <div class="stove-pack-banner">
-          <i class="fa-solid fa-box-open"></i>
-          <div><strong>Kit de Instalación Incluido:</strong> Cañones, manta, pala y sombrero</div>
-        </div>
-      ` : '';
-
       card.innerHTML = `
         <div class="product-thumb">
           <span class="product-badge ${p.badgeType}">${p.badge}</span>
@@ -291,14 +309,13 @@ function initCatalogFilters() {
         <div class="product-info">
           <span class="product-category">${p.categoryName}</span>
           <h4 class="product-name">${p.name}</h4>
-          ${packBanner}
           <p class="product-desc">${p.description}</p>
           <div class="product-specs">
             ${specsHtml}
           </div>
           <div class="product-footer">
             <button class="btn btn-secondary btn-sm btn-quickview" data-id="${p.id}">
-              <i class="fa-solid fa-eye"></i> Ver Ficha Técnica
+              <i class="fa-solid fa-eye"></i> Ver Detalles
             </button>
             <a href="https://wa.me/56995253536?text=Hola%20Marcelo,%20me%20gustar%C3%ADa%20consultar%20por:%20${encodeURIComponent(p.name)}" target="_blank" class="btn btn-primary btn-sm">
               <i class="fa-brands fa-whatsapp"></i> Consultar
@@ -391,7 +408,7 @@ function openProductModal(productId) {
   }
 
   const whatsappBtn = document.getElementById('modalWhatsappBtn');
-  whatsappBtn.href = `https://wa.me/56995253536?text=Hola%20Marcelo%20(Taller%20Montalba),%20deseo%20consultar%20detalles%20sobre:%20${encodeURIComponent(product.name)}`;
+  whatsappBtn.href = `https://wa.me/56995253536?text=Hola%20Marcelo%20(Taller%20Montalba),%20deseo%20consultar%20por:%20${encodeURIComponent(product.name)}`;
 
   modalOverlay.classList.add('active');
 }
@@ -459,20 +476,20 @@ function initUnifiedCotizadorContact() {
       if (noticeIcon) noticeIcon.className = 'fa-solid fa-camera';
       if (noticeText) noticeText.innerHTML = '<strong>¿Tienes fotos de tu cocina?</strong> Al presionar el botón se abrirá WhatsApp para que puedas adjuntárselas directamente a Marcelo y recibir una orientación precisa.';
       if (submitBtnText) submitBtnText.textContent = 'Enviar Consulta / Fotos a Marcelo';
-    } else if (selectedServiceVal === 'cocina-mueble' || selectedServiceVal === 'cocina-compacta') {
-      if (formMessage) formMessage.placeholder = 'Ej: ¿Tienes stock para entrega inmediata? ¿Haces despacho a mi sector? ¿Puedo ir a verla al taller?...';
-      if (formMessageLabel) formMessageLabel.textContent = 'Dudas sobre disponibilidad, despacho o entrega (opcional):';
-      if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
-      if (noticeIcon) noticeIcon.className = 'fa-solid fa-box-open';
-      if (noticeText) noticeText.innerHTML = '<strong>Incluye Kit Completo:</strong> Todos nuestros modelos nuevos vienen con cañones, manta pasamuros, sombrerete, pala y garantía de reparación directa en taller.';
-      if (submitBtnText) submitBtnText.textContent = 'Consultar Disponibilidad por WhatsApp';
     } else if (selectedServiceVal === 'termos-canones') {
-      if (formMessage) formMessage.placeholder = 'Ej: ¿Qué medidas de cañones tienes disponibles? ¿O qué capacidad de termo inox me recomiendas?...';
-      if (formMessageLabel) formMessageLabel.textContent = 'Detalle de los artículos o medidas que necesitas (opcional):';
+      if (formMessage) formMessage.placeholder = 'Ej: Necesito 4 cañones de 5 pulgadas, una manta de zinc y un sombrerete antiviento...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Detalle de los cañones o accesorios que necesitas (opcional):';
       if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
-      if (noticeIcon) noticeIcon.className = 'fa-solid fa-fire-flame-curved';
-      if (noticeText) noticeText.innerHTML = '<strong>Fierro y Acero Inoxidable:</strong> Fabricación resistente de termos y cañones compatibles con cocinas tradicionales a leña.';
-      if (submitBtnText) submitBtnText.textContent = 'Consultar Repuestos / Accesorios por WhatsApp';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-toolbox';
+      if (noticeText) noticeText.innerHTML = '<strong>Cañones y Accesorios:</strong> Disponibles en diámetros de 4", 5" y 6" con entrega o retiro en taller en Galvarino.';
+      if (submitBtnText) submitBtnText.textContent = 'Consultar Cañones / Accesorios por WhatsApp';
+    } else if (selectedServiceVal === 'termo-inox') {
+      if (formMessage) formMessage.placeholder = 'Ej: Quiero saber capacidad y medidas para instalar un termo de cañón en mi cocina a leña...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Dudas sobre termo inox o instalación (opcional):';
+      if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-faucet-hot';
+      if (noticeText) noticeText.innerHTML = '<strong>Acero Inoxidable Sanitario:</strong> Agua caliente continua por termosifón con respaldo directo de taller.';
+      if (submitBtnText) submitBtnText.textContent = 'Consultar Termo Inoxidable por WhatsApp';
     } else {
       if (formMessage) formMessage.placeholder = 'Ej: Horarios de atención para llevar una cocina al taller, dudas sobre repuestos o ubicación en Chacabuco 128...';
       if (formMessageLabel) formMessageLabel.textContent = 'Detalle de tu consulta (opcional):';
@@ -490,8 +507,8 @@ function initUnifiedCotizadorContact() {
       if (summaryScope) summaryScope.textContent = stateText;
 
       const extras = [];
+      if (checkCanones && checkCanones.checked) extras.push('Cañones galvanizados / manta / sombrero');
       if (checkTermo && checkTermo.checked) extras.push('Termo Cañón Inox');
-      if (checkCanones && checkCanones.checked) extras.push('Kit de evacuación (cañones, manta, sombrerete, pala)');
       if (checkTraslado && checkTraslado.checked) extras.push('Traslado directo (solo dentro del sector)');
 
       if (summaryExtras) {
@@ -515,8 +532,8 @@ function initUnifiedCotizadorContact() {
       }
     } else {
       if (summaryEstTime) {
-        if (selectedServiceVal === 'cocina-mueble' || selectedServiceVal === 'cocina-compacta') {
-          summaryEstTime.textContent = 'Entrega inmediata / Retiro en taller o flete en el sector';
+        if (selectedServiceVal === 'termos-canones' || selectedServiceVal === 'termo-inox') {
+          summaryEstTime.textContent = 'Retiro en taller o coordinación en el sector';
         } else {
           summaryEstTime.textContent = 'Atención directa en taller Galvarino';
         }
@@ -549,8 +566,8 @@ function initUnifiedCotizadorContact() {
       const typeText = stoveType ? stoveType.options[stoveType.selectedIndex].text : '';
       const stateText = stoveState ? stoveState.options[stoveState.selectedIndex].text : '';
       const extras = [];
+      if (checkCanones && checkCanones.checked) extras.push('Cañones galvanizados / evacuación');
       if (checkTermo && checkTermo.checked) extras.push('Termo Cañón Inox');
-      if (checkCanones && checkCanones.checked) extras.push('Kit de evacuación');
       if (checkTraslado && checkTraslado.checked) extras.push('Traslado dentro del sector');
 
       payload += `• Formato de cocina: ${typeText}\n`;
