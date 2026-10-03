@@ -1,7 +1,7 @@
 /**
  * TALLER MONTALBA - INTERACTIVE LOGIC & SCRIPTS
  * Especialistas en Restauración y Venta de Cocinas a Leña Tradicionales
- * Fundado en 1986 por Alfonso Montalba Torres · Atendido por Marcelo Montalba
+ * Atención Directa: Marcelo Montalba
  * Chacabuco 128, Galvarino, Región de La Araucanía, Chile
  */
 
@@ -524,8 +524,8 @@ function initUnifiedCotizadorContact() {
           summaryEstTime.textContent = '3 a 5 días hábiles aprox. (Ladrillos refractarios)';
         } else if (stoveState && stoveState.value === 'cubierta') {
           summaryEstTime.textContent = '3 a 6 días hábiles aprox. (Rectificación de cubierta)';
-        } else if (stoveState && stoveState.value === 'enlozado-fabrica') {
-          summaryEstTime.textContent = '10 a 15 días hábiles aprox. (Enlozado vitrificado)';
+        } else if (stoveState && stoveState.value === 'completa') {
+          summaryEstTime.textContent = '7 a 12 días hábiles aprox. (Restauración completa)';
         } else {
           summaryEstTime.textContent = 'Diagnóstico preliminar por fotos con Marcelo';
         }
@@ -769,9 +769,9 @@ function initScrollSpy() {
       }
     });
 
-    // If active section is inside the "Más" dropdown (taller, ubicacion, faq), highlight "Más"
+    // If active section is inside the "Más" dropdown (ubicacion, faq), highlight "Más"
     if (moreDropdownBtn) {
-      if (isInsideMoreDropdown || currentSectionId === 'taller' || currentSectionId === 'ubicacion' || currentSectionId === 'faq') {
+      if (isInsideMoreDropdown || currentSectionId === 'ubicacion' || currentSectionId === 'faq') {
         moreDropdownBtn.classList.add('active');
       } else {
         moreDropdownBtn.classList.remove('active');

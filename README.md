@@ -1,6 +1,6 @@
 # Taller Montalba — Landing Page Oficial
 ### *Chacabuco 128, Galvarino, Chile*
-### *Especialistas en Restauración de Cocinas a Leña Tradicionales · Cañones y Accesorios · Fundado en 1986 por Alfonso Montalba Torres · Atendido por Marcelo Montalba*
+### *Especialistas en Restauración de Cocinas a Leña Tradicionales · Cañones y Accesorios · Atendido por Marcelo Montalba*
 
 Landing page auténtica, honesta y de alto impacto visual para **Taller Montalba**, taller artesanal ubicado en **Chacabuco 128, Galvarino (Región de La Araucanía)**.
 
@@ -22,9 +22,9 @@ Landing page auténtica, honesta y de alto impacto visual para **Taller Montalba
    - Codos de 45° y 90°, palas atizadoras forjadas y refractarios.
    - Termos de cañón y acumuladores de pie en acero inoxidable sanitario (AISI 304).
 
-3. **Historia Familiar Genuina**:
-   - Iniciado en **1986 por Alfonso Montalba Torres**.
-   - Atendido y trabajado de forma personal e individual por **Marcelo Montalba**.
+3. **Atención Directa y Personalizada**:
+   - Atendido de forma personal por **Marcelo Montalba**.
+   - Presupuesto honesto, diagnóstico técnico y opción de entrega en el sector.
 
 4. **Ubicación & Google Maps**:
    - Mapa interactivo integrado con la ubicación en **Chacabuco 128, Galvarino, Chile**.
