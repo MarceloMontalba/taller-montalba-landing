@@ -1,14 +1,11 @@
 /**
  * TALLER MONTALBA - INTERACTIVE LOGIC & SCRIPTS
- * Especialistas en Restauración y Venta de Cocinas a Leña Tradicionales
- * Atención Directa: Marcelo Montalba
+ * Taller Especializado en Reparación y Restauración de Cocinas a Leña Tradicionales
  * Chacabuco 128, Galvarino, Región de La Araucanía, Chile
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initComparisonSlider();
-  initCatalogFilters();
-  initProductModal();
   initUnifiedCotizadorContact();
   initFaqAccordion();
   initNavDropdown();
@@ -75,346 +72,7 @@ function initComparisonSlider() {
 }
 
 /* ==========================================================================
-   2. PRODUCT CATALOG DATA & FILTERS (DUCTS, ACCESSORIES & SPARES)
-   ========================================================================== */
-const PRODUCTS = [
-  {
-    id: 'canones-galvanizados-tradicional',
-    name: 'Cañones Galvanizados Estándar y a Medida (4", 5" y Especiales)',
-    category: 'canones',
-    categoryName: 'Cañones',
-    badge: 'Estándar y a Medida',
-    badgeType: 'sale',
-    image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Cañones de zinc y fierro galvanizado de alto calibre diseñados especialmente para cocinas a leña tradicionales. Disponibles en diámetros estándar de 4", 5" y 6", y también fabricamos tramos y cañones a medida según la altura, desvíos o requerimientos particulares de tu instalación.',
-    specs: {
-      'Diámetros': '4", 5", 6" y fabricación a medida',
-      'Largo': 'Tramos de 1 metro y medidas especiales a pedido',
-      'Material': 'Zinc / Fierro galvanizado reforzado',
-      'Uso': 'Cocinas a leña tipo mueble, compactas y estufas',
-      'Garantía': 'Respaldo directo de Taller Montalba'
-    },
-    price: 'Venta por Unidad o a Medida'
-  },
-  {
-    id: 'canones-combustion-lenta',
-    name: 'Cañones para Estufas a Combustión Lenta (5" y 6")',
-    category: 'canones',
-    categoryName: 'Cañones',
-    badge: 'Alta Temperatura',
-    badgeType: 'sale',
-    image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Cañones reforzados para evacuación en estufas de combustión lenta. Diseñados para resistir choques térmicos elevados y optimizar el tiro de humos (aclaramos que comercializamos cañones de alta calidad, pero nuestro servicio de restauración se enfoca en cocinas tradicionales).',
-    specs: {
-      'Diámetros': '5" y 6" pulgadas para combustión',
-      'Largo': 'Tramos de 1 metro y cortes especiales',
-      'Resistencia': 'Alta tolerancia a calor y creosota',
-      'Disponibilidad': 'Stock permanente en taller'
-    },
-    price: 'Consultar en Taller'
-  },
-  {
-    id: 'manta-pasamuros-galvanizada',
-    name: 'Manta Pasamuros Galvanizada (Estándar y a Medida)',
-    category: 'techumbre',
-    categoryName: 'Mantas y Sombreros',
-    badge: 'Anti-Goteras a Medida',
-    badgeType: 'inox',
-    image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Manta pasamuros troquelada en plancha de zinc/galvanizado con cuello y gollete ajustable. Disponibles en medidas estándar y también las confeccionamos a medida según la pendiente, curvatura o material de tu techo, asegurando un sellado 100% hermético contra filtraciones de agua.',
-    specs: {
-      'Material': 'Plancha de zinc galvanizado reforzado',
-      'Salida': 'Compatible con 4", 5", 6" y a medida',
-      'Confección': 'Estándar y adaptada a la pendiente de tu techo',
-      'Instalación': 'Apta para zinc, teja, fibrocemento o pizarreño'
-    },
-    price: 'Disponible en Taller y a Pedido'
-  },
-  {
-    id: 'sombrero-antiviento-galvanizado',
-    name: 'Sombrerete Antiviento Cónico y Tipo H para Remate',
-    category: 'techumbre',
-    categoryName: 'Mantas y Sombreros',
-    badge: 'Tiraje Seguro',
-    badgeType: 'sale',
-    image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Sombrero de terminación superior para cañón de cocina o estufa. Su diseño aerodinámico protege contra la entrada de agua de lluvia torrencial, previene el revoque o retroceso de humo por ráfagas de viento y bloquea el ingreso de ramas o aves.',
-    specs: {
-      'Modelos': 'Cónico protector y Antiviento Tipo H',
-      'Diámetros': '4", 5" y 6" pulgadas',
-      'Material': 'Galvanizado de alto espesor',
-      'Función': 'Impide retorno de humo y entrada de agua'
-    },
-    price: 'Disponible en Taller'
-  },
-  {
-    id: 'codos-galvanizados-45-90',
-    name: 'Codos y Desvíos Galvanizados (45° y 90°)',
-    category: 'repuestos',
-    categoryName: 'Herrajes y Codos',
-    badge: 'Ajuste Hermético',
-    badgeType: 'sale',
-    image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Codos estampados y articulados de 45° y 90° en fierro galvanizado. Permiten realizar desvíos y esquivar vigas, tijerales o alerones de techumbre manteniendo un flujo de tiro libre de estrangulamientos y sin pérdidas de hermeticidad.',
-    specs: {
-      'Ángulos': '45 Grados y 90 Grados',
-      'Diámetros': '4" y 5" pulgadas',
-      'Empalme': 'Machihembrado de encaje rápido y seguro',
-      'Uso': 'Desvíos en muros y vigas de entretecho'
-    },
-    price: 'Venta por Unidad'
-  },
-  {
-    id: 'kit-instalacion-completo',
-    name: 'Kit Completo de Cañones y Accesorios para Cocina',
-    category: 'canones',
-    categoryName: 'Kits de Cañones',
-    badge: 'Pack Completo',
-    badgeType: 'sale',
-    image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Conjunto completo de tiro para renovación de cañones o instalación: incluye 4 cañones galvanizados de 1 metro, 1 manta pasamuros impermeable, 1 sombrerete antiviento de alta eficiencia y 1 pala atizadora forjada.',
-    specs: {
-      'Contenido': '4 cañones (1m c/u) + 1 manta + 1 sombrero + 1 pala',
-      'Diámetros': 'Disponible en 4" y 5" pulgadas',
-      'Aplicación': 'Cocinas a leña de 1, 2, 3 y 4 platos',
-      'Garantía': 'Materiales nuevos con respaldo de taller'
-    },
-    price: 'Pack Conveniente en Taller'
-  },
-  {
-    id: 'termo-canon-inox',
-    name: 'Termo de Cañón en Acero Inoxidable Sanitario (Agua Caliente)',
-    category: 'termos',
-    categoryName: 'Termos Inoxidables',
-    badge: 'Inox Sanitario 304',
-    badgeType: 'inox',
-    image: 'img/cocina-blanca-termo-inoxidable.jpg',
-    description: 'Termo envolvente de cañón fabricado en acero inoxidable sanitario AISI 304. Aprovecha la energía calórica del cañón de la cocina para calentar agua continua a costo cero. Respaldado con la garantía de Taller Montalba ante cualquier necesidad de ajuste o mantención.',
-    specs: {
-      'Material': 'Acero Inoxidable Sanitario AISI 304',
-      'Capacidad': '40 a 60 Litros continuos',
-      'Accesorios': 'Reloj termómetro análogo integrado',
-      'Funcionamiento': 'Termosifón automático con el calor de la leña',
-      'Garantía': 'Respaldo técnico directo de Marcelo Montalba'
-    },
-    price: 'Venta Directa en Taller'
-  },
-  {
-    id: 'termo-vertical-stock',
-    name: 'Estanque Termo Acumulador Vertical de Pie (Acero Inox)',
-    category: 'termos',
-    categoryName: 'Termos Inoxidables',
-    badge: 'Gran Capacidad',
-    badgeType: 'inox',
-    image: 'img/taller-cocinas-termos-stock.webp',
-    description: 'Estanque acumulador de pie en acero inoxidable reforzado para circuitos de agua caliente por termosifón con serpentín interior en cocinas tradicionales. Alta capacidad de reserva térmica para familias y viviendas de campo.',
-    specs: {
-      'Capacidad': '80 / 120 Litros',
-      'Estructura': 'Acero inoxidable reforzado sobre base de apoyo',
-      'Compatibilidad': 'Circuitos con serpentín en cocina a leña',
-      'Garantía': 'Respaldo técnico de Taller Montalba'
-    },
-    price: 'A Pedido / Stock en Taller'
-  },
-  {
-    id: 'ladrillos-mortero-refractario',
-    name: 'Ladrillos y Cemento / Mortero Refractario de Alta Densidad',
-    category: 'repuestos',
-    categoryName: 'Herrajes y Refractarios',
-    badge: 'Hasta 1300°C',
-    badgeType: 'sale',
-    image: 'img/taller-artesano-restauracion.jpg',
-    description: 'Ladrillos refractarios de alta alúmina y mortero térmico para reconstrucción de cajas de fuego y cámaras de combustión. Maximizan la retención de calor hacia el horno y reducen drásticamente el consumo de leña.',
-    specs: {
-      'Resistencia': 'Térmica hasta 1300°C',
-      'Densidad': 'Alta inercia para acumulación de calor',
-      'Uso': 'Reemplazo de ladrillos quebrados en cocinas tradicionales',
-      'Presentación': 'Unidades y sacos de fraguado térmico'
-    },
-    price: 'Disponible en Taller'
-  },
-  {
-    id: 'pala-atizadora-herrajes',
-    name: 'Pala Atizadora Forjada y Herrajes de Fierro',
-    category: 'repuestos',
-    categoryName: 'Herrajes y Codos',
-    badge: 'Fierro Macizo',
-    badgeType: 'sale',
-    image: 'img/kit-canones-manta-sombrero.webp',
-    description: 'Palas atizadoras, tiradores y ganchos de manipulación de brasa forjados en fierro macizo de alto espesor con terminación anticorrosiva y empuñadura atérmica.',
-    specs: {
-      'Material': 'Fierro forjado macizo',
-      'Largo': '50 a 65 cm con empuñadura segura',
-      'Uso': 'Retiro de cenizas y acomodo de leña en cámara',
-      'Durabilidad': 'Diseñado para uso rudo y continuo'
-    },
-    price: 'Disponible en Taller'
-  }
-];
-
-function initCatalogFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const productsContainer = document.getElementById('productsContainer');
-  const searchInput = document.getElementById('productSearchInput');
-  
-  if (!productsContainer) return;
-
-  function renderProducts(category = 'all', searchQuery = '') {
-    productsContainer.innerHTML = '';
-
-    const filtered = PRODUCTS.filter(p => {
-      const matchesCategory = category === 'all' || p.category === category;
-      const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                            p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            p.categoryName.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-
-    if (filtered.length === 0) {
-      productsContainer.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;">
-          <i class="fa-solid fa-toolbox" style="font-size: 3rem; color: var(--color-slate-400); margin-bottom: 1rem;"></i>
-          <h4 style="font-size: 1.3rem; color: var(--color-dark-900); margin-bottom: 0.5rem;">No se encontraron artículos con esa búsqueda</h4>
-          <p style="color: var(--color-slate-500); max-width: 450px; margin: 0 auto 1.5rem;">
-            ¿Buscas una medida o repuesto específico? Consulta directamente a Marcelo Montalba por WhatsApp.
-          </p>
-          <a href="https://wa.me/56995253536?text=Hola%20Marcelo,%20estoy%20buscando%20un%20art%C3%ADculo%20o%20repuesto%20espec%C3%ADfico" target="_blank" class="btn btn-whatsapp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar a Marcelo
-          </a>
-        </div>
-      `;
-      return;
-    }
-
-    filtered.forEach(p => {
-      const card = document.createElement('div');
-      card.className = 'product-card';
-      card.setAttribute('data-id', p.id);
-
-      let specsHtml = '';
-      for (const [key, val] of Object.entries(p.specs).slice(0, 3)) {
-        specsHtml += `
-          <div class="product-spec-row">
-            <span>${key}:</span>
-            <strong>${val}</strong>
-          </div>
-        `;
-      }
-
-      card.innerHTML = `
-        <div class="product-thumb">
-          <span class="product-badge ${p.badgeType}">${p.badge}</span>
-          <img src="${p.image}" alt="${p.name}" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="product-category">${p.categoryName}</span>
-          <h4 class="product-name">${p.name}</h4>
-          <p class="product-desc">${p.description}</p>
-          <div class="product-specs">
-            ${specsHtml}
-          </div>
-          <div class="product-footer">
-            <button class="btn btn-secondary btn-sm btn-quickview" data-id="${p.id}">
-              <i class="fa-solid fa-eye"></i> Ver Detalles
-            </button>
-            <a href="https://wa.me/56995253536?text=Hola%20Marcelo,%20me%20gustar%C3%ADa%20consultar%20por:%20${encodeURIComponent(p.name)}" target="_blank" class="btn btn-primary btn-sm">
-              <i class="fa-brands fa-whatsapp"></i> Consultar
-            </a>
-          </div>
-        </div>
-      `;
-
-      productsContainer.appendChild(card);
-    });
-
-    // Rebind quickview buttons
-    document.querySelectorAll('.btn-quickview').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const id = e.currentTarget.getAttribute('data-id');
-        openProductModal(id);
-      });
-    });
-  }
-
-  // Filter Buttons
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.getAttribute('data-filter');
-      const search = searchInput ? searchInput.value : '';
-      renderProducts(cat, search);
-    });
-  });
-
-  // Search input
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const activeBtn = document.querySelector('.filter-btn.active');
-      const cat = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
-      renderProducts(cat, e.target.value);
-    });
-  }
-
-  // Initial render
-  renderProducts('all');
-}
-
-/* ==========================================================================
-   3. PRODUCT MODAL QUICKVIEW
-   ========================================================================== */
-function initProductModal() {
-  const modalOverlay = document.getElementById('productModal');
-  const closeBtn = document.getElementById('modalCloseBtn');
-
-  if (!modalOverlay || !closeBtn) return;
-
-  closeBtn.addEventListener('click', () => {
-    modalOverlay.classList.remove('active');
-  });
-
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) {
-      modalOverlay.classList.remove('active');
-    }
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-      modalOverlay.classList.remove('active');
-    }
-  });
-}
-
-function openProductModal(productId) {
-  const modalOverlay = document.getElementById('productModal');
-  const product = PRODUCTS.find(p => p.id === productId);
-  if (!modalOverlay || !product) return;
-
-  document.getElementById('modalImg').src = product.image;
-  document.getElementById('modalImg').alt = product.name;
-  document.getElementById('modalCategory').textContent = product.categoryName;
-  document.getElementById('modalTitle').textContent = product.name;
-  document.getElementById('modalBadge').textContent = product.badge;
-  document.getElementById('modalDescription').textContent = product.description;
-
-  const specsContainer = document.getElementById('modalSpecsContainer');
-  specsContainer.innerHTML = '';
-  for (const [key, val] of Object.entries(product.specs)) {
-    const row = document.createElement('div');
-    row.className = 'product-spec-row';
-    row.innerHTML = `<span>${key}:</span> <strong>${val}</strong>`;
-    specsContainer.appendChild(row);
-  }
-
-  const whatsappBtn = document.getElementById('modalWhatsappBtn');
-  whatsappBtn.href = `https://wa.me/56995253536?text=Hola%20Marcelo%20(Taller%20Montalba),%20deseo%20consultar%20por:%20${encodeURIComponent(product.name)}`;
-
-  modalOverlay.classList.add('active');
-}
-
-/* ==========================================================================
-   4. UNIFIED RESTORATION COTIZADOR & TECHNICAL CONTACT HANDLER
+   2. UNIFIED RESTORATION COTIZADOR & TECHNICAL CONTACT HANDLER
    ========================================================================== */
 function initUnifiedCotizadorContact() {
   const form = document.getElementById('contactForm');
@@ -431,8 +89,6 @@ function initUnifiedCotizadorContact() {
   const restorationBlock = document.getElementById('restorationOptionsBlock');
   const stoveType = document.getElementById('calcStoveType');
   const stoveState = document.getElementById('calcStoveState');
-  const checkTermo = document.getElementById('calcAddTermo');
-  const checkCanones = document.getElementById('calcAddCanones');
   const checkTraslado = document.getElementById('calcAddTraslado');
 
   // Summary elements
@@ -454,96 +110,103 @@ function initUnifiedCotizadorContact() {
   const submitBtnText = document.getElementById('submitBtnText');
 
   function updateSummary() {
-    const selectedServiceVal = formService ? formService.value : 'restauracion';
-    const selectedServiceText = formService ? formService.options[formService.selectedIndex].text : 'Reparar o Restaurar mi Cocina a Leña';
+    const selectedServiceVal = formService ? formService.value : 'restauracion-integral';
+    const selectedServiceText = formService ? formService.options[formService.selectedIndex].text : 'Restauración Integral Completa de Cocina a Leña';
 
     if (summaryService) summaryService.textContent = selectedServiceText;
 
-    const isRestoration = selectedServiceVal === 'restauracion';
+    const isGeneralWorkshopInquiry = selectedServiceVal === 'consulta-taller';
 
     if (restorationBlock) {
-      restorationBlock.style.display = isRestoration ? 'block' : 'none';
+      restorationBlock.style.display = isGeneralWorkshopInquiry ? 'none' : 'block';
     }
-    if (summaryStoveRow) summaryStoveRow.style.display = isRestoration ? 'flex' : 'none';
-    if (summaryScopeRow) summaryScopeRow.style.display = isRestoration ? 'flex' : 'none';
-    if (summaryExtrasRow) summaryExtrasRow.style.display = isRestoration ? 'flex' : 'none';
+    if (summaryStoveRow) summaryStoveRow.style.display = isGeneralWorkshopInquiry ? 'none' : 'flex';
+    if (summaryScopeRow) summaryScopeRow.style.display = isGeneralWorkshopInquiry ? 'none' : 'flex';
+    if (summaryExtrasRow) summaryExtrasRow.style.display = isGeneralWorkshopInquiry ? 'none' : 'flex';
 
     // Adapt contextual hints, placeholders and buttons
-    if (selectedServiceVal === 'restauracion') {
-      if (formMessage) formMessage.placeholder = 'Ej: La cocina humea mucho al encender, se rompieron los ladrillos o es una cocina antigua heredada...';
+    if (selectedServiceVal === 'restauracion-integral') {
+      if (formMessage) formMessage.placeholder = 'Ej: La cocina humea mucho al encender, tiene las latas del fondo quemadas o es una cocina antigua heredada...';
       if (formMessageLabel) formMessageLabel.textContent = 'Cuéntanos más detalles sobre tu cocina (opcional):';
       if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
       if (noticeIcon) noticeIcon.className = 'fa-solid fa-camera';
-      if (noticeText) noticeText.innerHTML = '<strong>¿Tienes fotos de tu cocina?</strong> Al presionar el botón se abrirá WhatsApp para que puedas adjuntárselas directamente a Marcelo y recibir una orientación precisa.';
-      if (submitBtnText) submitBtnText.textContent = 'Enviar Consulta / Fotos a Marcelo';
-    } else if (selectedServiceVal === 'termos-canones') {
-      if (formMessage) formMessage.placeholder = 'Ej: Necesito 4 cañones de 5", o una manta y tramos a medida para mi techo...';
-      if (formMessageLabel) formMessageLabel.textContent = 'Detalle de los cañones o accesorios que necesitas (opcional):';
+      if (noticeText) noticeText.innerHTML = '<strong>¿Tienes fotos de tu cocina?</strong> Al presionar el botón se abrirá WhatsApp para que puedas adjuntárselas directamente al taller y recibir un diagnóstico técnico preliminar.';
+      if (submitBtnText) submitBtnText.textContent = 'Enviar Consulta / Fotos por WhatsApp';
+    } else if (selectedServiceVal === 'cambio-latas') {
+      if (formMessage) formMessage.placeholder = 'Ej: El fondo del fuego se perforó y cae ceniza, o las latas laterales del horno están adelgazadas...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Detalle de las latas o partes quemadas (opcional):';
       if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
-      if (noticeIcon) noticeIcon.className = 'fa-solid fa-toolbox';
-      if (noticeText) noticeText.innerHTML = '<strong>Cañones y Mantas (Estándar y a Medida):</strong> Stock en 4", 5" y 6", y confección personalizada según el ángulo o pasada de tu techo.';
-      if (submitBtnText) submitBtnText.textContent = 'Consultar Cañones / Accesorios por WhatsApp';
-    } else if (selectedServiceVal === 'termo-inox') {
-      if (formMessage) formMessage.placeholder = 'Ej: Quiero saber capacidad y medidas para instalar un termo de cañón en mi cocina a leña...';
-      if (formMessageLabel) formMessageLabel.textContent = 'Dudas sobre termo inox o instalación (opcional):';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-layer-group';
+      if (noticeText) noticeText.innerHTML = '<strong>Latas de Alto Espesor:</strong> Sustituimos las partes quemadas por planchas de acero nuevas con soldadura reforzada para devolverle la firmeza.';
+      if (submitBtnText) submitBtnText.textContent = 'Consultar Cambio de Latas por WhatsApp';
+    } else if (selectedServiceVal === 'refractarios') {
+      if (formMessage) formMessage.placeholder = 'Ej: Los ladrillos del fondo se rompieron y no retiene calor hacia el horno...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Estado de los ladrillos o caja de fuego (opcional):';
       if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
-      if (noticeIcon) noticeIcon.className = 'fa-solid fa-faucet-hot';
-      if (noticeText) noticeText.innerHTML = '<strong>Acero Inoxidable Sanitario:</strong> Agua caliente continua por termosifón con respaldo directo de taller.';
-      if (submitBtnText) submitBtnText.textContent = 'Consultar Termo Inoxidable por WhatsApp';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-cubes';
+      if (noticeText) noticeText.innerHTML = '<strong>Cámaras Refractarias a 1300°C:</strong> Ladrillos de alta densidad y mortero térmico para máximo calor y menor consumo de leña.';
+      if (submitBtnText) submitBtnText.textContent = 'Consultar Refractarios por WhatsApp';
+    } else if (selectedServiceVal === 'humo-tiro') {
+      if (formMessage) formMessage.placeholder = 'Ej: Sale humo por las compuertas o las uniones de cañones al encender...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Detalle del problema de humo o tiraje (opcional):';
+      if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-smog';
+      if (noticeText) noticeText.innerHTML = '<strong>Diagnóstico de Tiraje:</strong> Sellado hermético de pasos de humo, compuertas y adaptación de cañones para aire limpio.';
+      if (submitBtnText) submitBtnText.textContent = 'Consultar Tiraje / Humo por WhatsApp';
+    } else if (selectedServiceVal === 'evaluacion-fotos') {
+      if (formMessage) formMessage.placeholder = 'Ej: Deseo enviar fotos para saber si la cocina tiene arreglo y cuánto saldría...';
+      if (formMessageLabel) formMessageLabel.textContent = 'Detalles adicionales sobre la cocina (opcional):';
+      if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
+      if (noticeIcon) noticeIcon.className = 'fa-solid fa-camera';
+      if (noticeText) noticeText.innerHTML = '<strong>Evaluación por Fotos:</strong> Al abrirse WhatsApp podrás adjuntar las fotos de la cocina para una respuesta directa del taller.';
+      if (submitBtnText) submitBtnText.textContent = 'Enviar Fotos para Diagnóstico por WhatsApp';
     } else {
-      if (formMessage) formMessage.placeholder = 'Ej: Horarios de atención para llevar una cocina al taller, dudas sobre repuestos o ubicación en Chacabuco 128...';
+      if (formMessage) formMessage.placeholder = 'Ej: Horarios de atención para llevar una cocina al taller en Chacabuco 128 o dudas técnicas...';
       if (formMessageLabel) formMessageLabel.textContent = 'Detalle de tu consulta (opcional):';
       if (photoNoticeBox) photoNoticeBox.style.display = 'flex';
       if (noticeIcon) noticeIcon.className = 'fa-solid fa-location-dot';
-      if (noticeText) noticeText.innerHTML = '<strong>Atención Directa:</strong> Marcelo Montalba atiende personalmente cada requerimiento en el taller de Chacabuco 128, Galvarino.';
-      if (submitBtnText) submitBtnText.textContent = 'Enviar Consulta a Marcelo por WhatsApp';
+      if (noticeText) noticeText.innerHTML = '<strong>Atención Directa:</strong> Atención técnica directa en nuestro taller de Chacabuco 128, Galvarino.';
+      if (submitBtnText) submitBtnText.textContent = 'Enviar Consulta por WhatsApp';
     }
 
-    if (isRestoration) {
+    if (!isGeneralWorkshopInquiry) {
       const typeText = stoveType ? stoveType.options[stoveType.selectedIndex].text : '';
       const stateText = stoveState ? stoveState.options[stoveState.selectedIndex].text : '';
       
       if (summaryStove) summaryStove.textContent = typeText;
       if (summaryScope) summaryScope.textContent = stateText;
 
-      const extras = [];
-      if (checkCanones && checkCanones.checked) extras.push('Cañones galvanizados / manta / sombrero');
-      if (checkTermo && checkTermo.checked) extras.push('Termo Cañón Inox');
-      if (checkTraslado && checkTraslado.checked) extras.push('Traslado directo (solo dentro del sector)');
-
       if (summaryExtras) {
-        summaryExtras.textContent = extras.length > 0 ? extras.join(', ') : 'Ninguno seleccionado';
+        summaryExtras.textContent = (checkTraslado && checkTraslado.checked)
+          ? 'Consultar traslado (zona Galvarino)'
+          : 'No solicitado';
       }
 
       if (summaryEstTime) {
-        if (stoveState && stoveState.value === 'lata-total') {
+        if (selectedServiceVal === 'evaluacion-fotos') {
+          summaryEstTime.textContent = 'Diagnóstico preliminar inmediato por WhatsApp';
+        } else if (stoveState && stoveState.value === 'lata-total') {
           summaryEstTime.textContent = '7 a 12 días hábiles aprox. (Restauración completa)';
         } else if (stoveState && stoveState.value === 'humo-latas') {
-          summaryEstTime.textContent = '5 a 8 días hábiles aprox. (Cambio de latas)';
+          summaryEstTime.textContent = '5 a 8 días hábiles aprox. (Cambio de latas y sellado)';
         } else if (stoveState && stoveState.value === 'ladrillos') {
           summaryEstTime.textContent = '3 a 5 días hábiles aprox. (Ladrillos refractarios)';
         } else if (stoveState && stoveState.value === 'cubierta') {
-          summaryEstTime.textContent = '3 a 6 días hábiles aprox. (Rectificación de cubierta)';
-        } else if (stoveState && stoveState.value === 'completa') {
-          summaryEstTime.textContent = '7 a 12 días hábiles aprox. (Restauración completa)';
+          summaryEstTime.textContent = '4 a 7 días hábiles aprox. (Rectificación de cubierta)';
         } else {
-          summaryEstTime.textContent = 'Diagnóstico preliminar por fotos con Marcelo';
+          summaryEstTime.textContent = '7 a 12 días hábiles según estado';
         }
       }
     } else {
       if (summaryEstTime) {
-        if (selectedServiceVal === 'termos-canones' || selectedServiceVal === 'termo-inox') {
-          summaryEstTime.textContent = 'Retiro en taller o coordinación en el sector';
-        } else {
-          summaryEstTime.textContent = 'Atención directa en taller Galvarino';
-        }
+        summaryEstTime.textContent = 'Atención directa en taller Chacabuco 128, Galvarino';
       }
     }
   }
 
   // Event listeners for dynamic updates
   if (formService) formService.addEventListener('change', updateSummary);
-  [stoveType, stoveState, checkTermo, checkCanones, checkTraslado].forEach(el => {
+  [stoveType, stoveState, checkTraslado].forEach(el => {
     if (el) el.addEventListener('change', updateSummary);
   });
 
@@ -552,27 +215,24 @@ function initUnifiedCotizadorContact() {
     const name = formName ? formName.value.trim() : '';
     const phone = formPhone ? formPhone.value.trim() : '';
     const city = formCity ? formCity.value.trim() : '';
-    const serviceVal = formService ? formService.value : 'restauracion';
+    const serviceVal = formService ? formService.value : 'restauracion-integral';
     const serviceText = formService ? formService.options[formService.selectedIndex].text : '';
     const message = formMessage ? formMessage.value.trim() : '';
 
-    let payload = `Hola Marcelo (Taller Montalba), te contacto desde el sitio web:\n`;
+    let payload = `Hola Taller Montalba, te contacto desde el sitio web:\n`;
     payload += `• Nombre: ${name}\n`;
     payload += `• Teléfono: ${phone}\n`;
     payload += `• Sector / Comuna: ${city || 'No especificada'}\n`;
-    payload += `• Requerimiento: ${serviceText}\n`;
+    payload += `• Servicio requerido: ${serviceText}\n`;
 
-    if (serviceVal === 'restauracion') {
+    if (serviceVal !== 'consulta-taller') {
       const typeText = stoveType ? stoveType.options[stoveType.selectedIndex].text : '';
       const stateText = stoveState ? stoveState.options[stoveState.selectedIndex].text : '';
-      const extras = [];
-      if (checkCanones && checkCanones.checked) extras.push('Cañones galvanizados / evacuación');
-      if (checkTermo && checkTermo.checked) extras.push('Termo Cañón Inox');
-      if (checkTraslado && checkTraslado.checked) extras.push('Traslado dentro del sector');
+      const trasladoSolicitado = checkTraslado && checkTraslado.checked;
 
       payload += `• Formato de cocina: ${typeText}\n`;
-      payload += `• Intervención técnica: ${stateText}\n`;
-      payload += `• Adicionales: ${extras.length > 0 ? extras.join(', ') : 'Ninguno'}\n`;
+      payload += `• Problema / intervención: ${stateText}\n`;
+      payload += `• Traslado en Galvarino: ${trasladoSolicitado ? 'Solicitado' : 'No requerido'}\n`;
     }
 
     if (message) {
@@ -606,7 +266,7 @@ function initUnifiedCotizadorContact() {
         return;
       }
 
-      const subject = `Consulta Taller Montalba - ${data.name}`;
+      const subject = `Consulta Reparación Cocina - ${data.name}`;
       const mailtoUrl = `mailto:montalbalex.mamg@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(data.payload)}`;
       window.location.href = mailtoUrl;
     });
@@ -617,7 +277,7 @@ function initUnifiedCotizadorContact() {
 }
 
 /* ==========================================================================
-   5. FAQ ACCORDION
+   3. FAQ ACCORDION
    ========================================================================== */
 function initFaqAccordion() {
   const faqHeaders = document.querySelectorAll('.faq-header');
@@ -644,7 +304,7 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   6. NAVIGATION DROPDOWN ("MÁS")
+   4. NAVIGATION DROPDOWN ("MÁS")
    ========================================================================== */
 function initNavDropdown() {
   const dropdown = document.getElementById('navMoreDropdown');
@@ -677,7 +337,7 @@ function initNavDropdown() {
 }
 
 /* ==========================================================================
-   7. MOBILE NAVIGATION
+   5. MOBILE NAVIGATION
    ========================================================================== */
 function initMobileNav() {
   const toggleBtn = document.getElementById('menuToggle');
@@ -708,7 +368,7 @@ function initMobileNav() {
 }
 
 /* ==========================================================================
-   7. STICKY HEADER ON SCROLL
+   6. STICKY HEADER ON SCROLL
    ========================================================================== */
 function initScrollHeader() {
   const header = document.querySelector('.site-header');
@@ -723,9 +383,8 @@ function initScrollHeader() {
   }, { passive: true });
 }
 
-
 /* ==========================================================================
-   8. ACTIVE SECTION SCROLLSPY
+   7. ACTIVE SECTION SCROLLSPY
    ========================================================================== */
 function initScrollSpy() {
   const sections = document.querySelectorAll('section[id], header[id], div[id="inicio"]');
@@ -761,7 +420,8 @@ function initScrollSpy() {
     navLinks.forEach(link => {
       link.classList.remove('active');
       const href = link.getAttribute('href');
-      if (href === `#${currentSectionId}`) {
+      if (href === `#${currentSectionId}` || 
+         (currentSectionId === 'proceso' && href === '#restauraciones')) {
         link.classList.add('active');
         if (link.classList.contains('nav-dropdown-link')) {
           isInsideMoreDropdown = true;
@@ -784,7 +444,7 @@ function initScrollSpy() {
 }
 
 /* ==========================================================================
-   9. SCROLL TO TOP BUTTON
+   8. SCROLL TO TOP BUTTON
    ========================================================================== */
 function initScrollTopButton() {
   const scrollTopBtn = document.getElementById('scrollTopBtn');
